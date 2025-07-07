@@ -262,7 +262,7 @@ const App = () => {
               },
               {
                 title: "Engaged",
-                price: "$49",
+                price: "€49",
                 period: "/month",
                 description: "Active participation in workshops",
                 features: [
