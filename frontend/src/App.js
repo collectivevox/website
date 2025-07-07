@@ -44,6 +44,7 @@ const App = () => {
               </span>
             </div>
             <div className="hidden md:flex items-center space-x-8">
+              <a href="#case-studies" className="text-gray-300 hover:text-orange-400 transition-colors">Case Studies</a>
               <a href="#how-it-works" className="text-gray-300 hover:text-orange-400 transition-colors">How It Works</a>
               <a href="#tiers" className="text-gray-300 hover:text-orange-400 transition-colors">Membership</a>
               <a href="#benefits" className="text-gray-300 hover:text-orange-400 transition-colors">Benefits</a>
