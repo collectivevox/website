@@ -495,27 +495,86 @@ const App = () => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 image: "https://images.pexels.com/photos/5990047/pexels-photo-5990047.jpeg",
-                name: "Sarah Chen",
-                role: "Marketing Director",
-                quote: "The insights I gained from my peers helped me navigate a complex team restructure. The different perspectives were invaluable.",
+                name: "Sarah Mitchell",
+                role: "Marketing Director, Healthcare Tech",
+                badge: "5-Star Mentor",
+                quote: "The AI matching is genius. I was paired with a fintech CEO and a supply chain director for my leadership challenge. In 90 minutes, I got perspectives I'd never have accessed in my traditional network.",
                 rating: 5
               },
               {
                 image: "https://images.unsplash.com/photo-1611927263875-74b858c28218",
-                name: "Michael Rodriguez", 
-                role: "Software Engineer",
-                quote: "I was stuck on a technical architecture decision. The workshop gave me three different approaches I hadn't considered.",
+                name: "James Chen", 
+                role: "Sustainability Consultant, Former Finance",
+                badge: "Career Breakthrough",
+                quote: "Six months after my workshop on career pivoting, I landed my dream role in sustainability consulting. The actionable insights from peers who'd made similar transitions were invaluable.",
                 rating: 5
               },
               {
                 image: "https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg",
-                name: "Emily Johnson",
-                role: "Operations Manager",
-                quote: "The 5-star rating system motivated me to contribute more, and now I'm getting consulting opportunities through the platform.",
+                name: "Raj Patel",
+                role: "Engineering Manager, Software",
+                badge: "Team Leadership",
+                quote: "My difficult team member situation felt impossible until I got advice from a retail manager and a nonprofit director. Their combined wisdom gave me a framework that transformed our dynamic.",
+                rating: 5
+              },
+              {
+                image: "https://images.pexels.com/photos/5990047/pexels-photo-5990047.jpeg",
+                name: "Maria Rodriguez",
+                role: "Senior Director, Consumer Goods",
+                badge: "Strategic Thinking",
+                quote: "The 1-on-1 coaching with the EQ practitioner was a game-changer. Finally understood how my communication style was limiting my executive presence. Now I'm on track for VP.",
+                rating: 5
+              },
+              {
+                image: "https://images.unsplash.com/photo-1611927263875-74b858c28218",
+                name: "Tom Wilson",
+                role: "Operations Director, Manufacturing",
+                badge: "Innovation Catalyst",
+                quote: "Working with peers from completely different industries opened my mind. Applied hospitality principles to manufacturing - increased our customer satisfaction by 40%.",
+                rating: 5
+              },
+              {
+                image: "https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg",
+                name: "Lisa Thompson",
+                role: "Product Manager, SaaS",
+                badge: "Problem Solver",
+                quote: "Stuck on a complex product roadmap decision, I connected with a healthcare director and retail strategist. Their cross-industry insights led to a breakthrough feature that increased user retention by 35%.",
+                rating: 5
+              },
+              {
+                image: "https://images.pexels.com/photos/5990047/pexels-photo-5990047.jpeg",
+                name: "David Kim",
+                role: "CFO, Tech Startup",
+                badge: "Financial Strategy",
+                quote: "The peer workshop on scaling challenges connected me with a manufacturing CEO and nonprofit executive. Their perspectives on cash flow management during growth phases were game-changing.",
+                rating: 5
+              },
+              {
+                image: "https://images.unsplash.com/photo-1611927263875-74b858c28218",
+                name: "Anna Kowalski",
+                role: "HR Director, Pharma",
+                badge: "Culture Builder",
+                quote: "Transforming company culture felt overwhelming until I learned from a hospitality manager and tech director. Their combined approaches helped us improve employee satisfaction by 50%.",
+                rating: 5
+              },
+              {
+                image: "https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg",
+                name: "Carlos Santos",
+                role: "Supply Chain Director, Retail",
+                badge: "Efficiency Expert",
+                quote: "The AI-powered matching connected me with a logistics expert and software architect. Their fresh perspectives on automation helped us reduce costs by 25% while improving delivery times.",
+                rating: 5
+              },
+              {
+                image: "https://images.pexels.com/photos/5990047/pexels-photo-5990047.jpeg",
+                name: "Rebecca Foster",
+                role: "VP Marketing, EdTech",
+                badge: "Growth Strategist",
+                quote: "My market expansion challenge seemed impossible until I connected with a healthcare CEO and retail director. Their insights on regulatory navigation and customer acquisition were invaluable.",
                 rating: 5
               }
             ].map((testimonial, index) => (
@@ -524,7 +583,7 @@ const App = () => {
                 className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
                 <div className="flex items-center mb-4">
@@ -533,17 +592,24 @@ const App = () => {
                     alt={testimonial.name}
                     className="w-12 h-12 rounded-full object-cover mr-4"
                   />
-                  <div>
+                  <div className="flex-1">
                     <h4 className="text-white font-semibold">{testimonial.name}</h4>
                     <p className="text-gray-400 text-sm">{testimonial.role}</p>
                   </div>
                 </div>
-                <div className="flex mb-3">
-                  {[...Array(testimonial.rating)].map((_, starIndex) => (
-                    <Star key={starIndex} className="h-4 w-4 text-orange-400 fill-current" />
-                  ))}
+                
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex">
+                    {[...Array(testimonial.rating)].map((_, starIndex) => (
+                      <Star key={starIndex} className="h-4 w-4 text-orange-400 fill-current" />
+                    ))}
+                  </div>
+                  <span className="bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                    {testimonial.badge}
+                  </span>
                 </div>
-                <p className="text-gray-300 italic">"{testimonial.quote}"</p>
+                
+                <p className="text-gray-300 italic text-sm leading-relaxed">"{testimonial.quote}"</p>
               </motion.div>
             ))}
           </div>
