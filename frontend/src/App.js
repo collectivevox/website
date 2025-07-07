@@ -35,6 +35,66 @@ const staggerContainer = {
 };
 
 const App = () => {
+  const [currentCaseStudy, setCurrentCaseStudy] = useState(0);
+
+  const caseStudies = [
+    {
+      id: 1,
+      title: "Crisis to Solution",
+      subtitle: "How Cross-Industry Wisdom Saved $2M in Supply Chain Losses",
+      name: "Nina Kumar",
+      initials: "NK",
+      role: "Supply Chain Director, Major Retail Chain",
+      challenge: "Nina faced a critical supply chain disruption when her primary overseas manufacturer suddenly shut down due to regulatory issues. With 60% of holiday inventory at risk and only 8 weeks until peak season, traditional solutions felt inadequate. Her retail industry peers offered predictable advice: find backup suppliers, negotiate expedited shipping, accept higher costs. But Nina needed breakthrough thinking.",
+      peers: [
+        {
+          title: "Hospital Administrator (Healthcare)",
+          insight: "In medical emergencies, we activate our 'surge capacity protocol' - temporarily redistributing existing resources while building new capacity. Don't just replace the supplier; redistribute your entire network's capacity first."
+        },
+        {
+          title: "Event Planner (Entertainment)",
+          insight: "When venues cancel last-minute, I never scramble for identical replacements. I redesign the experience around what's available. Can you redesign your product mix around your functional suppliers?"
+        }
+      ],
+      breakthrough: "These insights sparked Nina's hybrid solution: instead of replacing the lost supplier, she redesigned her holiday collection around her three functioning suppliers' strengths, redistributed orders to maximize their capacity, and created a 'limited edition' narrative around the streamlined product line. The event planner's reframing helped her see constraint as opportunity.",
+      impact: "$2M Saved",
+      details: "Nina's approach not only avoided massive losses but actually increased profit margins by 12% through the focused product strategy. The 'limited edition' positioning drove higher demand and justified premium pricing. What started as a crisis became her most successful holiday season.",
+      quote: "I would never have thought to apply hospital surge protocols to retail supply chains. That's the power of Collective Vox - perspectives you'd never access in your industry bubble."
+    },
+    {
+      id: 2,
+      title: "From Micromanager to Leader",
+      subtitle: "How Strategic Delegation Transformed Team Performance",
+      name: "James Thompson",
+      initials: "JT",
+      role: "Engineering Manager, Fintech Startup",
+      challenge: "James struggled with chronic micromanagement that was crushing his team's morale and stifling innovation. Despite working 70-hour weeks, his team consistently missed deadlines and two senior developers had quit citing 'suffocating management style.' His CEO delivered an ultimatum: fix the leadership issue or step down. Traditional management books offered theory, but James needed practical strategies to break deeply ingrained habits.",
+      peers: [
+        {
+          title: "Theater Director (Arts)",
+          insight: "In theater, every actor must deliver perfectly on opening night. I learned to give creative freedom within strict parameters - clear outcomes, flexible methods. Try 'guardrails, not handcuffs' - define success metrics but let them find their path."
+        },
+        {
+          title: "Emergency Room Physician (Healthcare)",
+          insight: "In the ER, I can't micromanage life-or-death decisions. I use 'trust but verify' intervals - brief check-ins at critical decision points, not constant monitoring. Create milestone gates, not minute-by-minute oversight."
+        }
+      ],
+      breakthrough: "These insights led James to develop his 'Milestone Gate Method' - establishing clear project outcomes and check-in points while eliminating daily status meetings. Like the theater director, he defined success parameters but gave his team creative freedom in execution. The ER physician's approach helped him identify truly critical decision points that warranted intervention versus routine progress monitoring.",
+      impact: "40% Faster",
+      details: "Within three months, James's team accelerated delivery by 40% while significantly improving code quality. Team satisfaction scores jumped from 2.1 to 4.3 out of 5. His direct reports began proposing innovative solutions and taking ownership of complex problems. The transformation was so dramatic that James became the company's go-to mentor for other struggling managers.",
+      quote: "I never imagined that theater directing and emergency medicine could teach me about software management. The combination of creative freedom with structured checkpoints was exactly what my team needed."
+    }
+  ];
+
+  const nextCaseStudy = () => {
+    setCurrentCaseStudy((prev) => (prev + 1) % caseStudies.length);
+  };
+
+  const prevCaseStudy = () => {
+    setCurrentCaseStudy((prev) => (prev - 1 + caseStudies.length) % caseStudies.length);
+  };
+
+  const currentCase = caseStudies[currentCaseStudy];
   return (
     <div className="min-h-screen bg-gray-900 text-white overflow-x-hidden">
       {/* Navigation */}
