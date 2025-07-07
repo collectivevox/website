@@ -478,6 +478,147 @@ const App = () => {
         </div>
       </section>
 
+      {/* Case Studies Section */}
+      <section id="case-studies" className="py-20 bg-gradient-to-b from-gray-900 via-black to-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
+              Success <span className="text-orange-400">Case Studies</span>
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
+              Real results from cross-industry collaboration
+            </p>
+          </motion.div>
+
+          {/* Nina Kumar Case Study */}
+          <motion.div 
+            className="bg-gradient-to-br from-orange-500/10 to-orange-600/10 rounded-3xl p-8 md:p-12 border border-orange-500/20 backdrop-blur-sm"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            {/* Header */}
+            <div className="text-center mb-12">
+              <h3 className="text-2xl md:text-3xl font-bold text-orange-400 mb-4">
+                Crisis to Solution
+              </h3>
+              <p className="text-lg md:text-xl text-white font-semibold">
+                How Cross-Industry Wisdom Saved $2M in Supply Chain Losses
+              </p>
+            </div>
+
+            {/* Profile */}
+            <div className="flex items-center justify-center mb-12">
+              <div className="flex items-center bg-black/30 rounded-2xl p-6 backdrop-blur-sm">
+                <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mr-6">
+                  <span className="text-white font-bold text-xl">NK</span>
+                </div>
+                <div>
+                  <h4 className="text-2xl font-bold text-orange-400">Nina Kumar</h4>
+                  <p className="text-gray-300 text-lg">Supply Chain Director, Major Retail Chain</p>
+                </div>
+              </div>
+            </div>
+
+            {/* The Challenge */}
+            <div className="mb-12">
+              <h4 className="text-2xl font-bold text-orange-400 mb-6">The Challenge</h4>
+              <div className="bg-black/20 rounded-2xl p-6 backdrop-blur-sm">
+                <p className="text-gray-300 leading-relaxed text-lg">
+                  Nina faced a <span className="text-orange-400 font-semibold">critical supply chain disruption</span> when her primary overseas 
+                  manufacturer suddenly shut down due to regulatory issues. With 60% of holiday 
+                  inventory at risk and only 8 weeks until peak season, traditional solutions felt 
+                  inadequate. Her retail industry peers offered predictable advice: find backup 
+                  suppliers, negotiate expedited shipping, accept higher costs. But Nina needed 
+                  breakthrough thinking.
+                </p>
+              </div>
+            </div>
+
+            {/* The Collective Intelligence */}
+            <div className="mb-12">
+              <h4 className="text-2xl font-bold text-orange-400 mb-6">The Collective Intelligence</h4>
+              <p className="text-gray-300 text-lg mb-6">
+                Collective Vox's AI matched Nina with two unexpected peers:
+              </p>
+              
+              <div className="grid md:grid-cols-2 gap-6">
+                {/* Hospital Administrator */}
+                <div className="bg-black/20 rounded-2xl p-6 backdrop-blur-sm border-l-4 border-orange-500">
+                  <h5 className="text-xl font-bold text-orange-400 mb-3">Hospital Administrator (Healthcare)</h5>
+                  <p className="text-gray-300 italic">
+                    "In medical emergencies, we activate our 'surge capacity protocol' - 
+                    temporarily redistributing existing resources while building new capacity. 
+                    Don't just replace the supplier; redistribute your entire network's capacity 
+                    first."
+                  </p>
+                </div>
+
+                {/* Event Planner */}
+                <div className="bg-black/20 rounded-2xl p-6 backdrop-blur-sm border-l-4 border-orange-500">
+                  <h5 className="text-xl font-bold text-orange-400 mb-3">Event Planner (Entertainment)</h5>
+                  <p className="text-gray-300 italic">
+                    "When venues cancel last-minute, I never scramble for identical 
+                    replacements. I redesign the experience around what's available. Can 
+                    you redesign your product mix around your functional suppliers?"
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* The Breakthrough */}
+            <div className="mb-12">
+              <h4 className="text-2xl font-bold text-orange-400 mb-6">The Breakthrough</h4>
+              <div className="bg-black/20 rounded-2xl p-6 backdrop-blur-sm">
+                <p className="text-gray-300 leading-relaxed text-lg">
+                  These insights sparked Nina's <span className="text-orange-400 font-semibold">hybrid solution</span>: instead of replacing the lost 
+                  supplier, she redesigned her holiday collection around her three functioning 
+                  suppliers' strengths, redistributed orders to maximize their capacity, and created a 
+                  "limited edition" narrative around the streamlined product line. The event planner's 
+                  reframing helped her see constraint as opportunity.
+                </p>
+              </div>
+            </div>
+
+            {/* The Impact */}
+            <div className="text-center">
+              <div className="bg-gradient-to-r from-orange-500/20 to-orange-600/20 rounded-2xl p-8 border border-orange-500/30">
+                <h4 className="text-4xl md:text-6xl font-bold text-orange-400 mb-4">$2M Saved</h4>
+                <h5 className="text-2xl font-bold text-orange-400 mb-6">The Impact</h5>
+                <p className="text-gray-300 leading-relaxed text-lg mb-6">
+                  Nina's approach not only avoided massive losses but actually <span className="text-orange-400 font-semibold">increased profit 
+                  margins by 12%</span> through the focused product strategy. The "limited edition" 
+                  positioning drove higher demand and justified premium pricing. What started as a 
+                  crisis became her most successful holiday season.
+                </p>
+                <div className="bg-black/30 rounded-xl p-6 backdrop-blur-sm">
+                  <p className="text-gray-300 italic text-xl">
+                    "I would never have thought to apply hospital surge protocols to retail supply 
+                    chains. That's the power of Collective Vox - perspectives you'd never 
+                    access in your industry bubble."
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* CTA */}
+            <div className="text-center mt-12">
+              <button className="bg-orange-500 hover:bg-orange-600 px-8 py-4 rounded-full text-white text-lg font-semibold transition-all transform hover:scale-105 shadow-lg hover:shadow-orange-500/25">
+                Get Your Breakthrough Solution
+                <ArrowRight className="inline ml-2 h-5 w-5" />
+              </button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Social Proof Section */}
       <section className="py-20 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
