@@ -583,7 +583,7 @@ const App = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <h3 className="text-2xl font-bold text-white mb-4">Peer Intelligence</h3>
+              <h3 className="text-2xl font-bold text-white mb-4">Collective Vox</h3>
               <p className="text-gray-400">
                 Building the world's most supportive professional community through collective intelligence.
               </p>
