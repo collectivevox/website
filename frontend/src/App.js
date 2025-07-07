@@ -420,7 +420,7 @@ const App = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Why Choose <span className="text-orange-400">Peer Intelligence</span>
+              Why Choose <span className="text-orange-400">Collective Vox</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Unlock opportunities and accelerate your professional growth
