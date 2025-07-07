@@ -559,10 +559,10 @@ const App = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
               Ready to <span className="text-orange-400">Unlock</span> Your Potential?
             </h2>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
               Join thousands of professionals who are already transforming their careers through collective intelligence.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
