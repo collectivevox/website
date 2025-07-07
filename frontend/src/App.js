@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { motion } from "framer-motion";
 import { 
@@ -10,10 +10,13 @@ import {
   Clock, 
   Globe,
   ArrowRight,
+  ArrowLeft,
   CheckCircle,
   TrendingUp,
   Shield,
-  Zap
+  Zap,
+  ChevronLeft,
+  ChevronRight
 } from "lucide-react";
 
 const fadeInUp = {
