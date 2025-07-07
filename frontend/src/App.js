@@ -166,6 +166,99 @@ const App = () => {
         </motion.div>
       </section>
 
+      {/* Founder Section */}
+      <section className="py-20 bg-gradient-to-b from-black to-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
+              Meet the <span className="text-orange-400">Founder</span>
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
+              Building the future of collective intelligence
+            </p>
+          </motion.div>
+
+          <motion.div 
+            className="max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="bg-gradient-to-br from-gray-900 to-black rounded-3xl p-8 md:p-12 border border-gray-800">
+              <div className="grid md:grid-cols-2 gap-12 items-center">
+                {/* Profile Image */}
+                <div className="text-center md:text-left">
+                  <div className="relative inline-block">
+                    <img 
+                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" 
+                      alt="Jeremy - Founder" 
+                      className="w-64 h-64 rounded-2xl object-cover shadow-2xl border-4 border-orange-500"
+                    />
+                    <div className="absolute -bottom-4 -right-4 bg-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold">
+                      Certified Genos Practitioner
+                    </div>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div>
+                  <h3 className="text-3xl font-bold text-orange-400 mb-4">Jeremy</h3>
+                  <p className="text-xl text-white mb-6 leading-relaxed">
+                    <span className="text-orange-400 font-semibold">Genos Emotional Intelligence practitioner</span> and mentor with 
+                    <span className="text-orange-400 font-semibold"> 16 years</span> of experience across financial, pharmaceutical, automotive, hospitality, and tech industries.
+                  </p>
+                  
+                  <p className="text-lg text-gray-300 mb-6 leading-relaxed">
+                    Passionate about the relationship between people and technology, I'm building a 
+                    <span className="text-orange-400 font-semibold"> global community of emotionally intelligent peers</span> sharing 
+                    best practices and insights - what I call <span className="text-orange-400 font-semibold">'collective intelligence'</span>.
+                  </p>
+
+                  <p className="text-lg text-gray-300 mb-8 leading-relaxed">
+                    <span className="text-orange-400 font-semibold">Certified Blockchain Expert</span> with deep knowledge of AI and Web3 technology. 
+                    I'm on a mission to help professionals thrive in our digital transformation.
+                  </p>
+
+                  <div className="flex items-center space-x-4">
+                    <div className="bg-orange-500 text-white px-6 py-3 rounded-full text-lg font-semibold">
+                      See you soon! 😎
+                    </div>
+                    <div className="flex space-x-2">
+                      <div className="w-3 h-3 bg-orange-500 rounded-full"></div>
+                      <div className="w-3 h-3 bg-orange-400 rounded-full"></div>
+                      <div className="w-3 h-3 bg-orange-300 rounded-full"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Credentials */}
+              <div className="mt-12 grid md:grid-cols-3 gap-6">
+                <div className="text-center p-6 bg-gray-800/30 rounded-xl border border-gray-700">
+                  <div className="text-3xl font-bold text-orange-400 mb-2">16+</div>
+                  <div className="text-white font-semibold">Years Experience</div>
+                </div>
+                <div className="text-center p-6 bg-gray-800/30 rounded-xl border border-gray-700">
+                  <div className="text-3xl font-bold text-orange-400 mb-2">5</div>
+                  <div className="text-white font-semibold">Industries Served</div>
+                </div>
+                <div className="text-center p-6 bg-gray-800/30 rounded-xl border border-gray-700">
+                  <div className="text-3xl font-bold text-orange-400 mb-2">EQ+AI</div>
+                  <div className="text-white font-semibold">Future Focus</div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Problem/Solution Section */}
       <section className="py-20 bg-gradient-to-b from-black to-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
