@@ -542,7 +542,7 @@ const App = () => {
       </section>
 
       {/* Case Studies Section */}
-      <section id="case-studies" className="py-20 bg-gradient-to-b from-gray-900 via-black to-gray-900">
+      <section id="case-studies" className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-16"
@@ -559,203 +559,125 @@ const App = () => {
             </p>
           </motion.div>
 
-          {/* Scrolling Case Studies Container */}
-          <div className="relative overflow-hidden">
-            <motion.div 
-              className="flex space-x-8"
-              animate={{
-                x: [0, -100 + "%"]
-              }}
-              transition={{
-                x: {
-                  repeat: Infinity,
-                  repeatType: "loop",
-                  duration: 30,
-                  ease: "linear"
-                }
-              }}
-              style={{ width: "200%" }}
+          {/* Case Study Container */}
+          <div className="relative">
+            {/* Navigation Arrows */}
+            <button 
+              onClick={prevCaseStudy}
+              className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-orange-500 hover:bg-orange-600 text-white p-3 rounded-full transition-all hover:scale-110 shadow-lg"
             >
-              {/* Case Study 1 - Nina Kumar */}
-              <div className="flex-none w-full">
-                <motion.div 
-                  className="bg-gradient-to-br from-orange-500/10 to-orange-600/10 rounded-3xl p-8 md:p-12 border border-orange-500/20 backdrop-blur-sm"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
-                  viewport={{ once: true }}
-                >
-                  {/* Header */}
-                  <div className="text-center mb-8">
-                    <h3 className="text-2xl md:text-3xl font-bold text-orange-400 mb-4">
-                      Crisis to Solution
-                    </h3>
-                    <p className="text-lg md:text-xl text-white font-semibold">
-                      How Cross-Industry Wisdom Saved $2M in Supply Chain Losses
-                    </p>
-                  </div>
+              <ChevronLeft className="h-6 w-6" />
+            </button>
+            
+            <button 
+              onClick={nextCaseStudy}
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-orange-500 hover:bg-orange-600 text-white p-3 rounded-full transition-all hover:scale-110 shadow-lg"
+            >
+              <ChevronRight className="h-6 w-6" />
+            </button>
 
-                  {/* Profile */}
-                  <div className="flex items-center justify-center mb-8">
-                    <div className="flex items-center bg-black/30 rounded-2xl p-4 backdrop-blur-sm">
-                      <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center mr-4">
-                        <span className="text-white font-bold">NK</span>
-                      </div>
-                      <div>
-                        <h4 className="text-xl font-bold text-orange-400">Nina Kumar</h4>
-                        <p className="text-gray-300">Supply Chain Director, Major Retail Chain</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-6">
-                    {/* The Challenge */}
-                    <div>
-                      <h4 className="text-xl font-bold text-orange-400 mb-4">The Challenge</h4>
-                      <div className="bg-black/20 rounded-2xl p-4 backdrop-blur-sm mb-6">
-                        <p className="text-gray-300 leading-relaxed">
-                          Nina faced a <span className="text-orange-400 font-semibold">critical supply chain disruption</span> when her primary manufacturer shut down. With 60% of holiday inventory at risk and 8 weeks until peak season, traditional solutions felt inadequate.
-                        </p>
-                      </div>
-
-                      {/* The Collective Intelligence */}
-                      <h4 className="text-xl font-bold text-orange-400 mb-4">The Collective Intelligence</h4>
-                      <div className="space-y-4">
-                        <div className="bg-black/20 rounded-xl p-4 backdrop-blur-sm border-l-4 border-orange-500">
-                          <h5 className="font-bold text-orange-400 mb-2">Hospital Administrator</h5>
-                          <p className="text-gray-300 text-sm italic">
-                            "Activate 'surge capacity protocol' - redistribute existing resources while building new capacity."
-                          </p>
-                        </div>
-                        <div className="bg-black/20 rounded-xl p-4 backdrop-blur-sm border-l-4 border-orange-500">
-                          <h5 className="font-bold text-orange-400 mb-2">Event Planner</h5>
-                          <p className="text-gray-300 text-sm italic">
-                            "Redesign the experience around what's available. Can you redesign your product mix?"
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* The Impact */}
-                    <div>
-                      <h4 className="text-xl font-bold text-orange-400 mb-4">The Breakthrough</h4>
-                      <div className="bg-black/20 rounded-2xl p-4 backdrop-blur-sm mb-6">
-                        <p className="text-gray-300 leading-relaxed">
-                          Nina's <span className="text-orange-400 font-semibold">hybrid solution</span>: redesigned her holiday collection around three functioning suppliers' strengths and created a "limited edition" narrative.
-                        </p>
-                      </div>
-
-                      <div className="text-center">
-                        <div className="bg-gradient-to-r from-orange-500/20 to-orange-600/20 rounded-2xl p-6 border border-orange-500/30">
-                          <h4 className="text-3xl font-bold text-orange-400 mb-2">$2M Saved</h4>
-                          <p className="text-gray-300 leading-relaxed mb-4">
-                            <span className="text-orange-400 font-semibold">Increased profit margins by 12%</span> through focused product strategy. What started as a crisis became her most successful holiday season.
-                          </p>
-                          <div className="bg-black/30 rounded-xl p-4 backdrop-blur-sm">
-                            <p className="text-gray-300 italic text-sm">
-                              "I would never have thought to apply hospital surge protocols to retail supply chains. That's the power of Collective Vox."
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
+            {/* Case Study Content */}
+            <motion.div 
+              key={currentCaseStudy}
+              className="bg-gradient-to-br from-gray-900 to-black rounded-3xl p-8 md:p-12 border border-gray-800 mx-16"
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -100 }}
+              transition={{ duration: 0.5 }}
+            >
+              {/* Header */}
+              <div className="text-center mb-12">
+                <h3 className="text-3xl md:text-4xl font-bold text-orange-400 mb-4">
+                  {currentCase.title}
+                </h3>
+                <p className="text-xl md:text-2xl text-white font-semibold">
+                  {currentCase.subtitle}
+                </p>
               </div>
 
-              {/* Case Study 2 - James Thompson */}
-              <div className="flex-none w-full">
-                <motion.div 
-                  className="bg-gradient-to-br from-orange-500/10 to-orange-600/10 rounded-3xl p-8 md:p-12 border border-orange-500/20 backdrop-blur-sm"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
-                  viewport={{ once: true }}
-                >
-                  {/* Header */}
-                  <div className="text-center mb-8">
-                    <h3 className="text-2xl md:text-3xl font-bold text-orange-400 mb-4">
-                      From Micromanager to Leader
-                    </h3>
-                    <p className="text-lg md:text-xl text-white font-semibold">
-                      How Strategic Delegation Transformed Team Performance
+              {/* Profile */}
+              <div className="flex items-center justify-center mb-12">
+                <div className="flex items-center bg-gray-800/50 rounded-2xl p-6 backdrop-blur-sm">
+                  <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mr-6">
+                    <span className="text-white font-bold text-xl">{currentCase.initials}</span>
+                  </div>
+                  <div>
+                    <h4 className="text-2xl font-bold text-orange-400">{currentCase.name}</h4>
+                    <p className="text-gray-300 text-lg">{currentCase.role}</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* The Challenge */}
+              <div className="mb-12">
+                <h4 className="text-2xl font-bold text-orange-400 mb-6">The Challenge</h4>
+                <div className="bg-gray-800/30 rounded-2xl p-6 border border-gray-700">
+                  <p className="text-white leading-relaxed text-lg">
+                    {currentCase.challenge}
+                  </p>
+                </div>
+              </div>
+
+              {/* The Collective Intelligence */}
+              <div className="mb-12">
+                <h4 className="text-2xl font-bold text-orange-400 mb-6">The Collective Intelligence</h4>
+                <p className="text-white text-lg mb-6">
+                  Collective Vox's AI matched {currentCase.name.split(' ')[0]} with two unexpected peers:
+                </p>
+                
+                <div className="grid md:grid-cols-2 gap-6">
+                  {currentCase.peers.map((peer, index) => (
+                    <div key={index} className="bg-gray-800/30 rounded-2xl p-6 border-l-4 border-orange-500">
+                      <h5 className="text-xl font-bold text-orange-400 mb-3">{peer.title}</h5>
+                      <p className="text-gray-300 italic leading-relaxed">
+                        "{peer.insight}"
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* The Breakthrough */}
+              <div className="mb-12">
+                <h4 className="text-2xl font-bold text-orange-400 mb-6">The Breakthrough</h4>
+                <div className="bg-gray-800/30 rounded-2xl p-6 border border-gray-700">
+                  <p className="text-white leading-relaxed text-lg">
+                    {currentCase.breakthrough}
+                  </p>
+                </div>
+              </div>
+
+              {/* The Impact */}
+              <div className="text-center">
+                <div className="bg-gradient-to-r from-orange-500/20 to-orange-600/20 rounded-2xl p-8 border border-orange-500/30">
+                  <h4 className="text-5xl md:text-6xl font-bold text-orange-400 mb-4">{currentCase.impact}</h4>
+                  <h5 className="text-2xl font-bold text-orange-400 mb-6">The Impact</h5>
+                  <p className="text-white leading-relaxed text-lg mb-6">
+                    {currentCase.details}
+                  </p>
+                  <div className="bg-black/40 rounded-xl p-6 border border-gray-700">
+                    <p className="text-gray-300 italic text-xl">
+                      "{currentCase.quote}"
                     </p>
                   </div>
-
-                  {/* Profile */}
-                  <div className="flex items-center justify-center mb-8">
-                    <div className="flex items-center bg-black/30 rounded-2xl p-4 backdrop-blur-sm">
-                      <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center mr-4">
-                        <span className="text-white font-bold">JT</span>
-                      </div>
-                      <div>
-                        <h4 className="text-xl font-bold text-orange-400">James Thompson</h4>
-                        <p className="text-gray-300">Engineering Manager, Fintech Startup</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-6">
-                    {/* The Challenge */}
-                    <div>
-                      <h4 className="text-xl font-bold text-orange-400 mb-4">The Challenge</h4>
-                      <div className="bg-black/20 rounded-2xl p-4 backdrop-blur-sm mb-6">
-                        <p className="text-gray-300 leading-relaxed">
-                          James struggled with <span className="text-orange-400 font-semibold">chronic micromanagement</span> that was crushing his team's morale. Despite 70-hour weeks, his team missed deadlines and two senior developers quit citing "suffocating management style."
-                        </p>
-                      </div>
-
-                      {/* The Collective Intelligence */}
-                      <h4 className="text-xl font-bold text-orange-400 mb-4">The Collective Intelligence</h4>
-                      <div className="space-y-4">
-                        <div className="bg-black/20 rounded-xl p-4 backdrop-blur-sm border-l-4 border-orange-500">
-                          <h5 className="font-bold text-orange-400 mb-2">Theater Director</h5>
-                          <p className="text-gray-300 text-sm italic">
-                            "Give creative freedom within strict parameters - clear outcomes, flexible methods. Try 'guardrails, not handcuffs'."
-                          </p>
-                        </div>
-                        <div className="bg-black/20 rounded-xl p-4 backdrop-blur-sm border-l-4 border-orange-500">
-                          <h5 className="font-bold text-orange-400 mb-2">Emergency Room Physician</h5>
-                          <p className="text-gray-300 text-sm italic">
-                            "Use 'trust but verify' intervals - brief check-ins at critical decision points, not constant monitoring."
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* The Impact */}
-                    <div>
-                      <h4 className="text-xl font-bold text-orange-400 mb-4">The Breakthrough</h4>
-                      <div className="bg-black/20 rounded-2xl p-4 backdrop-blur-sm mb-6">
-                        <p className="text-gray-300 leading-relaxed">
-                          James developed his <span className="text-orange-400 font-semibold">"Milestone Gate Method"</span> - establishing clear project outcomes and check-in points while eliminating daily status meetings.
-                        </p>
-                      </div>
-
-                      <div className="text-center">
-                        <div className="bg-gradient-to-r from-orange-500/20 to-orange-600/20 rounded-2xl p-6 border border-orange-500/30">
-                          <h4 className="text-3xl font-bold text-orange-400 mb-2">40% Faster</h4>
-                          <p className="text-gray-300 leading-relaxed mb-4">
-                            Team <span className="text-orange-400 font-semibold">accelerated delivery by 40%</span> while improving code quality. Team satisfaction scores jumped from 2.1 to 4.3 out of 5.
-                          </p>
-                          <div className="bg-black/30 rounded-xl p-4 backdrop-blur-sm">
-                            <p className="text-gray-300 italic text-sm">
-                              "I never imagined that theater directing and emergency medicine could teach me about software management."
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
+                </div>
               </div>
             </motion.div>
           </div>
 
           {/* Navigation Indicators */}
-          <div className="flex justify-center mt-8 space-x-2">
-            <div className="w-3 h-3 bg-orange-500 rounded-full"></div>
-            <div className="w-3 h-3 bg-gray-600 rounded-full"></div>
+          <div className="flex justify-center mt-8 space-x-3">
+            {caseStudies.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentCaseStudy(index)}
+                className={`w-4 h-4 rounded-full transition-all ${
+                  index === currentCaseStudy 
+                    ? 'bg-orange-500 scale-125' 
+                    : 'bg-gray-600 hover:bg-gray-500'
+                }`}
+              />
+            ))}
           </div>
 
           {/* CTA */}
