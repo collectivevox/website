@@ -649,14 +649,14 @@ const App = () => {
 
               {/* The Impact */}
               <div className="text-center">
-                <div className="bg-gradient-to-r from-orange-500/20 to-orange-600/20 rounded-2xl p-8 border border-orange-500/30">
-                  <h4 className="text-5xl md:text-6xl font-bold text-orange-400 mb-4">{currentCase.impact}</h4>
-                  <h5 className="text-2xl font-bold text-orange-400 mb-6">The Impact</h5>
+                <div className="bg-orange-500 rounded-2xl p-8 border-2 border-orange-400 shadow-xl">
+                  <h4 className="text-5xl md:text-6xl font-bold text-white mb-4">{currentCase.impact}</h4>
+                  <h5 className="text-2xl font-bold text-white mb-6">The Impact</h5>
                   <p className="text-white leading-relaxed text-lg mb-6">
                     {currentCase.details}
                   </p>
-                  <div className="bg-black/40 rounded-xl p-6 border border-gray-700">
-                    <p className="text-gray-300 italic text-xl">
+                  <div className="bg-black/30 rounded-xl p-6 border border-orange-300">
+                    <p className="text-white italic text-xl">
                       "{currentCase.quote}"
                     </p>
                   </div>
