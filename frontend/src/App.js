@@ -80,7 +80,7 @@ const App = () => {
           </motion.h1>
           
           <motion.p 
-            className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed"
             variants={fadeInUp}
           >
             Join a worldwide community of professionals sharing wisdom, experience, and insights. 
