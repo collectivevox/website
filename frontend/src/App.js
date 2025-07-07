@@ -59,9 +59,9 @@ const App = () => {
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-900">
         <div className="absolute inset-0 bg-black/40"></div>
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-20"
+          className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{
-            backgroundImage: `url('https://images.pexels.com/photos/8349235/pexels-photo-8349235.jpeg')`
+            backgroundImage: `url('https://images.unsplash.com/photo-1644088379091-d574269d422f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2Mzl8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMHRlY2hub2xvZ3l8ZW58MHx8fHwxNzUxOTAzOTUyfDA&ixlib=rb-4.1.0&q=85')`
           }}
         ></div>
         
