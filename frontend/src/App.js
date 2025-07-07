@@ -277,7 +277,7 @@ const App = () => {
               },
               {
                 title: "Mentor",
-                price: "$99",
+                price: "€149",
                 period: "/month",
                 description: "Lead and grow with premium support",
                 features: [
