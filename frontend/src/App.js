@@ -16,7 +16,8 @@ import {
   Shield,
   Zap,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  Linkedin
 } from "lucide-react";
 
 const fadeInUp = {
