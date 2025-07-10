@@ -198,7 +198,7 @@ const App = () => {
                 <div className="text-center md:text-left">
                   <div className="relative inline-block">
                     <img 
-                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face" 
+                      src="https://drive.google.com/uc?export=view&id=17DvK7OFYgMEEn_mQ2UwyLYHps9MU9p6B" 
                       alt="Jeremy Williams - Founder" 
                       className="w-64 h-64 rounded-2xl object-cover shadow-2xl border-4 border-orange-500"
                     />
