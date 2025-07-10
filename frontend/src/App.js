@@ -198,13 +198,26 @@ const App = () => {
                 <div className="text-center md:text-left">
                   <div className="relative inline-block">
                     <img 
-                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" 
-                      alt="Jeremy - Founder" 
+                      src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAoACgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUWEHInGBEzKRobHBCNHw8eHxUjNiccJSjhhjdINUcpODpVU1FjI2dINERkNHU0VSZJY/9oADAMBAAIRAxEAPwD3+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD//Z" 
+                      alt="Jeremy Williams - Founder" 
                       className="w-64 h-64 rounded-2xl object-cover shadow-2xl border-4 border-orange-500"
                     />
                     <div className="absolute -bottom-4 -right-4 bg-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold">
                       Certified Genos Practitioner
                     </div>
+                  </div>
+                  
+                  {/* LinkedIn Badge */}
+                  <div className="mt-6 flex justify-center md:justify-start">
+                    <a 
+                      href="https://www.linkedin.com/in/jpw1/" 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-all transform hover:scale-105 shadow-lg"
+                    >
+                      <Linkedin className="h-5 w-5 mr-2" />
+                      Connect on LinkedIn
+                    </a>
                   </div>
                 </div>
 
