@@ -223,7 +223,7 @@ const App = () => {
 
                 {/* Content */}
                 <div>
-                  <h3 className="text-3xl font-bold text-orange-400 mb-4">Jeremy</h3>
+                  <h3 className="text-3xl font-bold text-orange-400 mb-4">Jeremy Williams</h3>
                   <p className="text-xl text-white mb-6 leading-relaxed">
                     <span className="text-orange-400 font-semibold">Genos Emotional Intelligence practitioner</span> and mentor with 
                     <span className="text-orange-400 font-semibold"> 16 years</span> of experience across financial, pharmaceutical, automotive, hospitality, and tech industries.
