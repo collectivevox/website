@@ -567,26 +567,37 @@ const App = () => {
               viewport={{ once: true }}
             >
               <div className="space-y-6">
-                <p className="text-gray-300 leading-relaxed text-lg">
+                <p className="text-gray-300 leading-relaxed text-lg mb-8">
                   Build your professional credibility through our 5-star rating system. Earn stars through positive peer reviews and work your way towards becoming an elite mentor with platform promotion.
                 </p>
                 
-                <div className="bg-gradient-to-r from-orange-500/20 to-orange-600/20 rounded-2xl p-6 border border-orange-500/30">
-                  <div className="flex items-center justify-center mb-4">
+                {[
+                  { stars: 1, description: "Beginning your journey as a trusted peer" },
+                  { stars: 2, description: "Providing valuable insights consistently" },
+                  { stars: 3, description: "Recognized for exceptional peer support" },
+                  { stars: 4, description: "Established as a go-to wisdom provider" },
+                  { stars: 5, description: "Elite mentor with platform promotion" }
+                ].map((badge, index) => (
+                  <div key={index} className={`flex items-center space-x-4 rounded-xl p-4 border ${
+                    badge.stars === 5 
+                      ? 'bg-gray-700/30 backdrop-blur-sm border-gray-500' 
+                      : 'bg-white/5 backdrop-blur-sm border-white/10'
+                  }`}>
                     <div className="flex space-x-1">
                       {[...Array(5)].map((_, starIndex) => (
                         <Star 
                           key={starIndex}
-                          className="h-8 w-8 text-orange-400 fill-current"
+                          className={`h-5 w-5 ${starIndex < badge.stars ? 'text-orange-400 fill-current' : 'text-gray-600'}`}
                         />
                       ))}
                     </div>
+                    <div className="flex-1">
+                      <p className={`${badge.stars === 5 ? 'text-white font-bold' : 'text-gray-300'}`}>
+                        {badge.description}
+                      </p>
+                    </div>
                   </div>
-                  <h4 className="text-2xl font-bold text-orange-400 text-center mb-3">Elite Mentor Status</h4>
-                  <p className="text-white text-center">
-                    Achieve 5-star recognition and gain platform promotion to expand your professional opportunities
-                  </p>
-                </div>
+                ))}
               </div>
             </motion.div>
           </div>
