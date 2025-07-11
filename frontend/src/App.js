@@ -568,7 +568,7 @@ const App = () => {
             >
               <div className="space-y-6">
                 <p className="text-gray-300 leading-relaxed text-lg mb-8">
-                  Build your professional credibility through our 5-star rating system. Earn stars through positive peer reviews and work your way towards becoming an elite mentor with platform promotion.
+                  Earn stars through positive peer reviews and work your way towards becoming an elite mentor with platform promotion.
                 </p>
                 
                 {[
