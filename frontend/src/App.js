@@ -786,7 +786,7 @@ const App = () => {
                   <p className="text-white leading-relaxed text-lg mb-6">
                     {currentCase.details}
                   </p>
-                  <div className="bg-gray-700/30 backdrop-blur-sm rounded-xl p-6 border border-gray-600">
+                  <div className="bg-black/60 backdrop-blur-sm rounded-xl p-6 border border-gray-800">
                     <p className="text-white italic text-xl">
                       "{currentCase.quote}"
                     </p>
