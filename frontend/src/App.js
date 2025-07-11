@@ -942,7 +942,7 @@ const App = () => {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-orange-500/20 to-orange-600/20 border-t border-orange-500/30">
+      <section className="py-20 bg-gray-700/30 backdrop-blur-sm border-t border-gray-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
