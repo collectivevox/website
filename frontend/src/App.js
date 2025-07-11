@@ -471,7 +471,7 @@ const App = () => {
                 key={index}
                 className={`relative rounded-2xl p-8 ${
                   tier.popular 
-                    ? 'bg-gradient-to-br from-orange-500/20 to-orange-600/20 border-2 border-orange-500' 
+                    ? 'bg-gray-700/30 backdrop-blur-sm border-2 border-gray-500' 
                     : 'bg-white/5 backdrop-blur-sm border border-white/10'
                 } hover:bg-white/10 transition-all`}
                 initial={{ opacity: 0, y: 30 }}
