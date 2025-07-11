@@ -296,17 +296,20 @@ const App = () => {
               {
                 icon: <Target className="h-8 w-8 text-orange-400" />,
                 title: "Blocked on Projects?",
-                description: "Get unstuck with fresh perspectives from professionals who've faced similar challenges"
+                description: "Get unstuck with fresh perspectives from professionals who've faced similar challenges",
+                image: "https://images.unsplash.com/photo-1713947503867-3b27964f042b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwxfHx3b3JrcGxhY2UlMjBzdHJlc3N8ZW58MHx8fHwxNzUyMjQyMzg4fDA&ixlib=rb-4.1.0&q=85"
               },
               {
                 icon: <Users className="h-8 w-8 text-orange-400" />,
                 title: "Difficult Relationships?",
-                description: "Navigate tricky professional dynamics with proven strategies from experienced peers"
+                description: "Navigate tricky professional dynamics with proven strategies from experienced peers",
+                image: "https://images.pexels.com/photos/7640730/pexels-photo-7640730.jpeg"
               },
               {
                 icon: <TrendingUp className="h-8 w-8 text-orange-400" />,
                 title: "Career Transition?",
-                description: "Chart your path forward with guidance from those who've successfully made the leap"
+                description: "Chart your path forward with guidance from those who've successfully made the leap",
+                image: "https://images.unsplash.com/photo-1620809975674-10b8ff5f8e58?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwyfHx3b3JrcGxhY2UlMjBzdHJlc3N8ZW58MHx8fHwxNzUyMjQyMzg4fDA&ixlib=rb-4.1.0&q=85"
               }
             ].map((item, index) => (
               <motion.div
@@ -318,6 +321,13 @@ const App = () => {
                 viewport={{ once: true }}
               >
                 <div className="mb-4">{item.icon}</div>
+                <div className="mb-4">
+                  <img 
+                    src={item.image} 
+                    alt={item.title}
+                    className="w-full h-32 object-cover rounded-xl opacity-80 hover:opacity-100 transition-opacity"
+                  />
+                </div>
                 <h3 className="text-xl font-semibold text-white mb-3">{item.title}</h3>
                 <p className="text-gray-300">{item.description}</p>
               </motion.div>
