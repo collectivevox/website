@@ -637,7 +637,7 @@ const App = () => {
               {
                 icon: <Zap className="h-8 w-8 text-orange-400" />,
                 title: "Actionable Insights",
-                description: "Get practical solutions you can implement immediately"
+                description: "AI insight and summaries with practical solutions you can implement immediately"
               },
               {
                 icon: <Award className="h-8 w-8 text-orange-400" />,
