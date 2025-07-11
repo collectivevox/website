@@ -368,16 +368,21 @@ const App = () => {
                 {[
                   {
                     step: "01",
+                    title: "Selection Process",
+                    description: "Complete a 3-minute form and participate in a 20-minute online profiling interview to ensure the best peer matches"
+                  },
+                  {
+                    step: "02",
                     title: "AI-Powered Matching",
                     description: "Our intelligent system matches you with 2 peers based on complementary roles, industries, and challenges"
                   },
                   {
-                    step: "02", 
+                    step: "03", 
                     title: "90-Minute Workshops",
                     description: "Each participant gets 30 minutes: 15 to share their challenge, 15 to receive peer insights and wisdom"
                   },
                   {
-                    step: "03",
+                    step: "04",
                     title: "Actionable Takeaways",
                     description: "Leave with concrete next steps from peer insights plus AI-generated summaries for ongoing reference"
                   }
