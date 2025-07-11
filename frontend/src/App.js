@@ -126,7 +126,7 @@ const App = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{
-            backgroundImage: `url('https://images.pexels.com/photos/4427815/pexels-photo-4427815.jpeg')`
+            backgroundImage: `url('https://i.imgur.com/nnuSnQ1.jpeg')`
           }}
         ></div>
         
