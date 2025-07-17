@@ -107,6 +107,7 @@ const App = () => {
                 src="https://i.imgur.com/sJIh7Dw.png" 
                 alt="Collective Vox - Global Peer Coaching Community" 
                 className="h-64 w-auto"
+                style={{ mixBlendMode: 'screen' }}
               />
             </div>
             <div className="hidden md:flex items-center space-x-8">
