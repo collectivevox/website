@@ -106,7 +106,7 @@ const App = () => {
               <img 
                 src="https://i.imgur.com/sJIh7Dw.png" 
                 alt="Collective Vox - Global Peer Coaching Community" 
-                className="h-10 w-auto"
+                className="h-16 w-auto"
               />
             </div>
             <div className="hidden md:flex items-center space-x-8">
