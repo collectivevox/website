@@ -104,10 +104,9 @@ const App = () => {
           <div className="flex justify-between items-center h-36">
             <div className="flex items-center">
               <img 
-                src="https://i.imgur.com/sJIh7Dw.png" 
+                src="https://i.imgur.com/GLVgzL9.png" 
                 alt="Collective Vox - Global Peer Coaching Community" 
                 className="h-64 w-auto"
-                style={{ mixBlendMode: 'screen' }}
               />
             </div>
             <div className="hidden md:flex items-center space-x-8">
