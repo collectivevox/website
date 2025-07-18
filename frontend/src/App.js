@@ -104,7 +104,7 @@ const App = () => {
           <div className="flex justify-between items-center h-36">
             <div className="flex items-center">
               <img 
-                src="https://i.imgur.com/GLVgzL9.png" 
+                src="https://i.imgur.com/MrJUKVH.png" 
                 alt="Collective Vox - Global Peer Coaching Community" 
                 className="h-64 w-auto"
               />
