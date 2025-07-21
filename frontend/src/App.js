@@ -58,7 +58,12 @@ const HeroCTA = () => {
           {user ? 'Access Dashboard' : 'Start Your Journey'}
           <ArrowRight className="inline ml-2 h-5 w-5" />
         </button>
-        <button className="border-2 border-white/20 backdrop-blur-sm px-8 py-4 rounded-full text-white text-lg font-semibold hover:bg-white/10 transition-all">
+        <button 
+          onClick={() => {
+            document.getElementById('how-it-works').scrollIntoView({ behavior: 'smooth' });
+          }}
+          className="border-2 border-white/20 backdrop-blur-sm px-8 py-4 rounded-full text-white text-lg font-semibold hover:bg-white/10 transition-all"
+        >
           Learn More
         </button>
       </motion.div>
