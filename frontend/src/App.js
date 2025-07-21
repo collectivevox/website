@@ -1122,10 +1122,38 @@ const App = () => {
             <div>
               <h4 className="text-white font-semibold mb-4">Platform</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-orange-400 transition-colors">How It Works</a></li>
-                <li><a href="#" className="hover:text-orange-400 transition-colors">Membership</a></li>
-                <li><a href="#" className="hover:text-orange-400 transition-colors">Workshops</a></li>
-                <li><a href="#" className="hover:text-orange-400 transition-colors">Success Stories</a></li>
+                <li>
+                  <button 
+                    onClick={() => document.getElementById('how-it-works').scrollIntoView({ behavior: 'smooth' })}
+                    className="hover:text-orange-400 transition-colors text-left"
+                  >
+                    How It Works
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => document.getElementById('tiers').scrollIntoView({ behavior: 'smooth' })}
+                    className="hover:text-orange-400 transition-colors text-left"
+                  >
+                    Membership
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => document.getElementById('how-it-works').scrollIntoView({ behavior: 'smooth' })}
+                    className="hover:text-orange-400 transition-colors text-left"
+                  >
+                    Workshops
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => document.getElementById('case-studies').scrollIntoView({ behavior: 'smooth' })}
+                    className="hover:text-orange-400 transition-colors text-left"
+                  >
+                    Success Stories
+                  </button>
+                </li>
               </ul>
             </div>
             <div>
