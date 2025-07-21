@@ -40,6 +40,38 @@ const staggerContainer = {
   }
 };
 
+// Hero CTA Component
+const HeroCTA = () => {
+  const { user } = useAuth();
+  const [authModalOpen, setAuthModalOpen] = useState(false);
+
+  return (
+    <>
+      <motion.div 
+        className="flex flex-col sm:flex-row gap-4 justify-center"
+        variants={fadeInUp}
+      >
+        <button 
+          onClick={() => setAuthModalOpen(true)}
+          className="bg-orange-500 hover:bg-orange-600 px-8 py-4 rounded-full text-white text-lg font-semibold transition-all transform hover:scale-105 shadow-lg hover:shadow-orange-500/25"
+        >
+          {user ? 'Access Dashboard' : 'Start Your Journey'}
+          <ArrowRight className="inline ml-2 h-5 w-5" />
+        </button>
+        <button className="border-2 border-white/20 backdrop-blur-sm px-8 py-4 rounded-full text-white text-lg font-semibold hover:bg-white/10 transition-all">
+          Learn More
+        </button>
+      </motion.div>
+
+      <AuthModal 
+        isOpen={authModalOpen} 
+        onClose={() => setAuthModalOpen(false)} 
+        initialTab="signup"
+      />
+    </>
+  );
+};
+
 // Navigation Component
 const Navigation = () => {
   const { user } = useAuth();
