@@ -1064,7 +1064,8 @@ const App = () => {
           </div>
         </div>
       </footer>
-    </div>
+      </div>
+    </AuthProvider>
   );
 };
 
