@@ -20,6 +20,11 @@ import {
   Linkedin
 } from "lucide-react";
 
+// Auth imports
+import { AuthProvider, useAuth } from './contexts/AuthContext';
+import AuthModal from './components/Auth/AuthModal';
+import UserMenu from './components/Auth/UserMenu';
+
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
   animate: { opacity: 1, y: 0 },
