@@ -40,6 +40,32 @@ const staggerContainer = {
   }
 };
 
+// Membership Tier Button Component
+const TierButton = ({ tier, children }) => {
+  const { user } = useAuth();
+  const [authModalOpen, setAuthModalOpen] = useState(false);
+
+  return (
+    <>
+      <button 
+        onClick={() => setAuthModalOpen(true)}
+        className={`w-full py-3 rounded-full font-semibold transition-all ${
+          tier.popular
+            ? 'bg-orange-500 hover:bg-orange-600 text-white'
+            : 'bg-white/10 hover:bg-white/20 text-white border border-white/20'
+        }`}
+      >
+        {children}
+      </button>
+      <AuthModal 
+        isOpen={authModalOpen} 
+        onClose={() => setAuthModalOpen(false)} 
+        initialTab="signup"
+      />
+    </>
+  );
+};
+
 // Hero CTA Component
 const HeroCTA = () => {
   const { user } = useAuth();
