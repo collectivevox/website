@@ -163,7 +163,10 @@ const Navigation = () => {
               <img 
                 src="https://i.imgur.com/MrJUKVH.png" 
                 alt="Collective Vox - Global Peer Coaching Community" 
-                className="h-64 w-auto"
+                className="h-64 w-auto cursor-pointer transition-opacity hover:opacity-80"
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
               />
             </div>
             <div className="hidden md:flex items-center space-x-8">
