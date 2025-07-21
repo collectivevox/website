@@ -894,10 +894,7 @@ const App = () => {
 
           {/* CTA */}
           <div className="text-center mt-12">
-            <button className="bg-orange-500 hover:bg-orange-600 px-8 py-4 rounded-full text-white text-lg font-semibold transition-all transform hover:scale-105 shadow-lg hover:shadow-orange-500/25">
-              Get Your Breakthrough Solution
-              <ArrowRight className="inline ml-2 h-5 w-5" />
-            </button>
+            <CaseStudiesCTA />
           </div>
         </div>
       </section>
