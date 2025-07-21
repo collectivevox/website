@@ -1076,14 +1076,8 @@ const App = () => {
             <p className="text-lg sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
               Join thousands of professionals who are already transforming their careers through collective intelligence.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-orange-500 hover:bg-orange-600 px-8 py-4 rounded-full text-white text-lg font-semibold transition-all transform hover:scale-105 shadow-lg hover:shadow-orange-500/25">
-                Start Your Journey Today
-                <ArrowRight className="inline ml-2 h-5 w-5" />
-              </button>
-              <button className="border-2 border-white/20 backdrop-blur-sm px-8 py-4 rounded-full text-white text-lg font-semibold hover:bg-white/10 transition-all">
-                Book a Demo
-              </button>
+            <div className="flex justify-center">
+              <FinalCTA />
             </div>
           </motion.div>
         </div>
