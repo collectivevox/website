@@ -600,13 +600,9 @@ const App = () => {
                   ))}
                 </ul>
 
-                <button className={`w-full py-3 rounded-full font-semibold transition-all ${
-                  tier.popular
-                    ? 'bg-orange-500 hover:bg-orange-600 text-white'
-                    : 'bg-white/10 hover:bg-white/20 text-white border border-white/20'
-                }`}>
+                <TierButton tier={tier}>
                   {tier.buttonText}
-                </button>
+                </TierButton>
               </motion.div>
             ))}
           </div>
