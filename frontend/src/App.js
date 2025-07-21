@@ -40,6 +40,29 @@ const staggerContainer = {
   }
 };
 
+// Final CTA Component
+const FinalCTA = () => {
+  const { user } = useAuth();
+  const [authModalOpen, setAuthModalOpen] = useState(false);
+
+  return (
+    <>
+      <button 
+        onClick={() => setAuthModalOpen(true)}
+        className="bg-orange-500 hover:bg-orange-600 px-8 py-4 rounded-full text-white text-lg font-semibold transition-all transform hover:scale-105 shadow-lg hover:shadow-orange-500/25"
+      >
+        Start Your Journey Today
+        <ArrowRight className="inline ml-2 h-5 w-5" />
+      </button>
+      <AuthModal 
+        isOpen={authModalOpen} 
+        onClose={() => setAuthModalOpen(false)} 
+        initialTab="signup"
+      />
+    </>
+  );
+};
+
 // Case Studies CTA Component
 const CaseStudiesCTA = () => {
   const { user } = useAuth();
