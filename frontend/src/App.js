@@ -40,6 +40,53 @@ const staggerContainer = {
   }
 };
 
+// Navigation Component
+const Navigation = () => {
+  const { user } = useAuth();
+  const [authModalOpen, setAuthModalOpen] = useState(false);
+
+  return (
+    <>
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-36">
+            <div className="flex items-center">
+              <img 
+                src="https://i.imgur.com/MrJUKVH.png" 
+                alt="Collective Vox - Global Peer Coaching Community" 
+                className="h-64 w-auto"
+              />
+            </div>
+            <div className="hidden md:flex items-center space-x-8">
+              <a href="#case-studies" className="text-gray-300 hover:text-orange-400 transition-colors">Case Studies</a>
+              <a href="#how-it-works" className="text-gray-300 hover:text-orange-400 transition-colors">How It Works</a>
+              <a href="#tiers" className="text-gray-300 hover:text-orange-400 transition-colors">Membership</a>
+              <a href="#benefits" className="text-gray-300 hover:text-orange-400 transition-colors">Benefits</a>
+              
+              {user ? (
+                <UserMenu />
+              ) : (
+                <button 
+                  onClick={() => setAuthModalOpen(true)}
+                  className="bg-orange-500 hover:bg-orange-600 px-6 py-2 rounded-full text-white font-semibold transition-all transform hover:scale-105"
+                >
+                  Join Community
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <AuthModal 
+        isOpen={authModalOpen} 
+        onClose={() => setAuthModalOpen(false)} 
+        initialTab="signup"
+      />
+    </>
+  );
+};
+
 const App = () => {
   const [currentCaseStudy, setCurrentCaseStudy] = useState(0);
 
