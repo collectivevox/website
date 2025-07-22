@@ -81,11 +81,19 @@ const CaseStudiesCTA = () => {
 const TierButton = ({ tier, children }) => {
   const { user } = useAuth();
 
+  const handleClick = () => {
+    // If it's the free "Curious" tier, scroll to case studies
+    if (tier.price === "Free") {
+      document.getElementById('case-studies').scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // For paid tiers, scroll to profiling form
+      document.getElementById('profiling-form').scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <button 
-      onClick={() => {
-        document.getElementById('profiling-form').scrollIntoView({ behavior: 'smooth' });
-      }}
+      onClick={handleClick}
       className={`w-full py-3 rounded-full font-semibold transition-all ${
         tier.popular
           ? 'bg-orange-500 hover:bg-orange-600 text-white'
