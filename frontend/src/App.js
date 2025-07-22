@@ -111,23 +111,23 @@ const HeroCTA = () => {
 
   return (
     <motion.div 
-      className="flex flex-col sm:flex-row gap-4 justify-center"
+      className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center"
       variants={fadeInUp}
     >
       <button 
         onClick={() => {
           document.getElementById('profiling-form').scrollIntoView({ behavior: 'smooth' });
         }}
-        className="bg-orange-500 hover:bg-orange-600 px-8 py-4 rounded-full text-white text-lg font-semibold transition-all transform hover:scale-105 shadow-lg hover:shadow-orange-500/25"
+        className="bg-orange-500 hover:bg-orange-600 px-6 sm:px-8 py-3 sm:py-4 rounded-full text-white text-base sm:text-lg font-semibold transition-all transform hover:scale-105 shadow-lg hover:shadow-orange-500/25 w-full sm:w-auto max-w-xs sm:max-w-none"
       >
         {user ? 'Complete Assessment' : 'Start Your Journey'}
-        <ArrowRight className="inline ml-2 h-5 w-5" />
+        <ArrowRight className="inline ml-2 h-4 w-4 sm:h-5 sm:w-5" />
       </button>
       <button 
         onClick={() => {
           document.getElementById('how-it-works').scrollIntoView({ behavior: 'smooth' });
         }}
-        className="border-2 border-white/20 backdrop-blur-sm px-8 py-4 rounded-full text-white text-lg font-semibold hover:bg-white/10 transition-all"
+        className="border-2 border-white/20 backdrop-blur-sm px-6 sm:px-8 py-3 sm:py-4 rounded-full text-white text-base sm:text-lg font-semibold hover:bg-white/10 transition-all w-full sm:w-auto max-w-xs sm:max-w-none"
       >
         Learn More
       </button>
