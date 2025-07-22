@@ -24,6 +24,7 @@ import {
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import AuthModal from './components/Auth/AuthModal';
 import UserMenu from './components/Auth/UserMenu';
+import ContactForm from './components/ContactForm';
 import ProfilingForm from './components/ProfilingForm';
 import ContactForm from './components/ContactForm';
 
