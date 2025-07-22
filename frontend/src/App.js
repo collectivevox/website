@@ -422,39 +422,39 @@ const App = () => {
       </section>
 
       {/* Problem/Solution Section */}
-      <section className="py-20 bg-gradient-to-b from-black to-gray-900">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-black to-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
-            className="text-center mb-16"
+            className="text-center mb-10 sm:mb-12 lg:mb-16"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
               Professional Challenges <span className="text-orange-400">Solved</span>
             </h2>
-            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto px-2 sm:px-0">
               Break through barriers with insights from professionals across industries and roles
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
               {
-                icon: <Target className="h-8 w-8 text-orange-400" />,
+                icon: <Target className="h-6 w-6 sm:h-8 sm:w-8 text-orange-400" />,
                 title: "Blocked on Projects?",
                 description: "Get unstuck with fresh perspectives from professionals who've faced similar challenges",
                 image: "https://images.unsplash.com/photo-1713947503867-3b27964f042b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwxfHx3b3JrcGxhY2UlMjBzdHJlc3N8ZW58MHx8fHwxNzUyMjQyMzg4fDA&ixlib=rb-4.1.0&q=85"
               },
               {
-                icon: <Users className="h-8 w-8 text-orange-400" />,
+                icon: <Users className="h-6 w-6 sm:h-8 sm:w-8 text-orange-400" />,
                 title: "Difficult Relationships?",
                 description: "Navigate tricky professional dynamics with proven strategies from experienced peers",
                 image: "https://images.pexels.com/photos/7640730/pexels-photo-7640730.jpeg"
               },
               {
-                icon: <TrendingUp className="h-8 w-8 text-orange-400" />,
+                icon: <TrendingUp className="h-6 w-6 sm:h-8 sm:w-8 text-orange-400" />,
                 title: "Career Transition?",
                 description: "Chart your path forward with guidance from those who've successfully made the leap",
                 image: "https://images.unsplash.com/photo-1620809975674-10b8ff5f8e58?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwyfHx3b3JrcGxhY2UlMjBzdHJlc3N8ZW58MHx8fHwxNzUyMjQyMzg4fDA&ixlib=rb-4.1.0&q=85"
@@ -462,22 +462,22 @@ const App = () => {
             ].map((item, index) => (
               <motion.div
                 key={index}
-                className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all"
+                className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/10 hover:bg-white/10 transition-all"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 viewport={{ once: true }}
               >
-                <div className="mb-4">{item.icon}</div>
-                <div className="mb-4">
+                <div className="mb-3 sm:mb-4">{item.icon}</div>
+                <div className="mb-3 sm:mb-4">
                   <img 
                     src={item.image} 
                     alt={item.title}
-                    className="w-full h-32 object-cover rounded-xl opacity-80 hover:opacity-100 transition-opacity"
+                    className="w-full h-28 sm:h-32 object-cover rounded-xl opacity-80 hover:opacity-100 transition-opacity"
                   />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-3">{item.title}</h3>
-                <p className="text-gray-300">{item.description}</p>
+                <h3 className="text-lg sm:text-xl font-semibold text-white mb-2 sm:mb-3">{item.title}</h3>
+                <p className="text-sm sm:text-base text-gray-300 leading-relaxed">{item.description}</p>
               </motion.div>
             ))}
           </div>
