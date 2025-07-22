@@ -154,6 +154,25 @@ const ProfilingForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-8">
+      {/* Connection Test (temporary) */}
+      <div className="bg-gray-700/30 rounded-xl p-4 border border-gray-600">
+        <div className="flex items-center justify-between">
+          <span className="text-white text-sm">Database Connection Test:</span>
+          <button
+            type="button"
+            onClick={testConnection}
+            className="bg-blue-500 hover:bg-blue-600 px-3 py-1 rounded text-white text-xs"
+          >
+            Test Connection
+          </button>
+        </div>
+        {connectionTest && (
+          <p className={`mt-2 text-xs ${connectionTest.includes('✅') ? 'text-green-400' : 'text-red-400'}`}>
+            {connectionTest}
+          </p>
+        )}
+      </div>
+
       {/* Submit Error */}
       {errors.submit && (
         <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-4">
