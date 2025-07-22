@@ -810,67 +810,67 @@ const App = () => {
       </section>
 
       {/* Benefits Section */}
-      <section id="benefits" className="py-20 bg-gradient-to-b from-black to-gray-900">
+      <section id="benefits" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-black to-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
-            className="text-center mb-16"
+            className="text-center mb-10 sm:mb-12 lg:mb-16"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
               Why Choose <span className="text-orange-400">Collective Vox</span>
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto px-2 sm:px-0">
               Unlock opportunities and accelerate your professional growth
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
               {
-                icon: <Globe className="h-8 w-8 text-orange-400" />,
+                icon: <Globe className="h-6 w-6 sm:h-8 sm:w-8 text-orange-400" />,
                 title: "Global Network",
                 description: "Connect with professionals across industries and continents"
               },
               {
-                icon: <Shield className="h-8 w-8 text-orange-400" />,
+                icon: <Shield className="h-6 w-6 sm:h-8 sm:w-8 text-orange-400" />,
                 title: "Safe Environment",
                 description: "Share challenges without compromising your professional credibility"
               },
               {
-                icon: <Zap className="h-8 w-8 text-orange-400" />,
+                icon: <Zap className="h-6 w-6 sm:h-8 sm:w-8 text-orange-400" />,
                 title: "Actionable Insights",
                 description: "AI insight and summaries with practical solutions you can implement immediately"
               },
               {
-                icon: <Award className="h-8 w-8 text-orange-400" />,
+                icon: <Award className="h-6 w-6 sm:h-8 sm:w-8 text-orange-400" />,
                 title: "Build Credibility",
                 description: "Earn recognition and promote your services through our platform"
               },
               {
-                icon: <MessageCircle className="h-8 w-8 text-orange-400" />,
+                icon: <MessageCircle className="h-6 w-6 sm:h-8 sm:w-8 text-orange-400" />,
                 title: "Expert Facilitation",
                 description: "Professionally guided sessions for maximum value extraction"
               },
               {
-                icon: <Clock className="h-8 w-8 text-orange-400" />,
+                icon: <Clock className="h-6 w-6 sm:h-8 sm:w-8 text-orange-400" />,
                 title: "Time Efficient",
                 description: "Structured 90-minute sessions that respect your busy schedule"
               }
             ].map((benefit, index) => (
               <motion.div
                 key={index}
-                className="text-center p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all"
+                className="text-center p-4 sm:p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <div className="mb-4 flex justify-center">{benefit.icon}</div>
-                <h3 className="text-xl font-semibold text-white mb-3">{benefit.title}</h3>
-                <p className="text-gray-300">{benefit.description}</p>
+                <div className="mb-3 sm:mb-4 flex justify-center">{benefit.icon}</div>
+                <h3 className="text-lg sm:text-xl font-semibold text-white mb-2 sm:mb-3">{benefit.title}</h3>
+                <p className="text-sm sm:text-base text-gray-300 leading-relaxed">{benefit.description}</p>
               </motion.div>
             ))}
           </div>
