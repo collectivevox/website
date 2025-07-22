@@ -16,6 +16,26 @@ const ProfilingForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
+  const [connectionTest, setConnectionTest] = useState('');
+
+  // Test connection function
+  const testConnection = async () => {
+    try {
+      console.log('Testing Supabase connection...');
+      const { data, error } = await supabase.from('assessments').select('count').limit(1);
+      
+      if (error) {
+        setConnectionTest(`Connection Error: ${error.message}`);
+        console.error('Connection test failed:', error);
+      } else {
+        setConnectionTest('✅ Connection successful!');
+        console.log('Connection test passed:', data);
+      }
+    } catch (err) {
+      setConnectionTest(`Network Error: ${err.message}`);
+      console.error('Network error:', err);
+    }
+  };
 
   const handleChange = (e) => {
     setFormData({
