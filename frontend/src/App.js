@@ -564,24 +564,24 @@ const App = () => {
       </section>
 
       {/* Membership Tiers Section */}
-      <section id="tiers" className="py-20 bg-gradient-to-b from-gray-900 to-black">
+      <section id="tiers" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-gray-900 to-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
-            className="text-center mb-16"
+            className="text-center mb-10 sm:mb-12 lg:mb-16"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
               Membership <span className="text-orange-400">Tiers</span>
             </h2>
-            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto px-2 sm:px-0">
               Choose your level of engagement and grow with our community
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
               {
                 title: "Curious",
@@ -629,38 +629,40 @@ const App = () => {
             ].map((tier, index) => (
               <motion.div
                 key={index}
-                className={`relative rounded-2xl p-8 ${
+                className={`relative rounded-2xl p-4 sm:p-6 lg:p-8 ${
                   tier.popular 
                     ? 'bg-gray-700/30 backdrop-blur-sm border-2 border-gray-500' 
                     : 'bg-white/5 backdrop-blur-sm border border-white/10'
-                } hover:bg-white/10 transition-all`}
+                } hover:bg-white/10 transition-all ${
+                  index === 2 ? 'sm:col-span-2 lg:col-span-1 sm:max-w-md sm:mx-auto lg:max-w-none' : ''
+                }`}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 viewport={{ once: true }}
               >
                 {tier.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold">
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                    <span className="bg-orange-500 text-white px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">
                       Most Popular
                     </span>
                   </div>
                 )}
                 
-                <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold text-white mb-2">{tier.title}</h3>
+                <div className="text-center mb-4 sm:mb-6">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">{tier.title}</h3>
                   <div className="mb-2">
-                    <span className="text-4xl font-bold text-orange-400">{tier.price}</span>
-                    {tier.period && <span className="text-gray-400">{tier.period}</span>}
+                    <span className="text-3xl sm:text-4xl font-bold text-orange-400">{tier.price}</span>
+                    {tier.period && <span className="text-sm sm:text-base text-gray-400">{tier.period}</span>}
                   </div>
-                  <p className="text-gray-300">{tier.description}</p>
+                  <p className="text-sm sm:text-base text-gray-300">{tier.description}</p>
                 </div>
 
-                <ul className="space-y-3 mb-8">
+                <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
                   {tier.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center text-gray-300">
-                      <CheckCircle className="h-5 w-5 text-orange-400 mr-3 flex-shrink-0" />
-                      {feature}
+                    <li key={featureIndex} className="flex items-start text-gray-300">
+                      <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-orange-400 mr-2 sm:mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm sm:text-base">{feature}</span>
                     </li>
                   ))}
                 </ul>
