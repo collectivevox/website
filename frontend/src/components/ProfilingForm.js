@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { User, Mail, Building, Briefcase, AlertCircle, ArrowRight, CheckCircle } from 'lucide-react';
+import { supabase } from '../supabaseClient';
 
 const ProfilingForm = () => {
   const [formData, setFormData] = useState({
@@ -61,14 +62,32 @@ const ProfilingForm = () => {
     setIsSubmitting(true);
     
     try {
-      // Here you would typically send the data to your backend/database
-      // For now, we'll simulate an API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      setIsSubmitted(true);
+      // Insert data into Supabase
+      const { data, error } = await supabase
+        .from('assessments')
+        .insert([
+          {
+            full_name: formData.fullName,
+            email: formData.email,
+            industry: formData.industry,
+            job_title: formData.jobTitle,
+            challenge_1: formData.challenge1,
+            challenge_2: formData.challenge2,
+            submitted_at: new Date().toISOString(),
+            status: 'new'
+          }
+        ]);
+
+      if (error) {
+        console.error('Supabase error:', error);
+        setErrors({ submit: 'There was an error submitting your form. Please try again.' });
+      } else {
+        console.log('Assessment submitted successfully:', data);
+        setIsSubmitted(true);
+      }
     } catch (error) {
       console.error('Error submitting form:', error);
-      // Handle error appropriately
+      setErrors({ submit: 'There was an error submitting your form. Please try again.' });
     } finally {
       setIsSubmitting(false);
     }
