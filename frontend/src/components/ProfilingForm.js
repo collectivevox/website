@@ -119,6 +119,16 @@ const ProfilingForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-8">
+      {/* Submit Error */}
+      {errors.submit && (
+        <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-4">
+          <p className="text-red-400 text-sm flex items-center">
+            <AlertCircle className="h-4 w-4 mr-2" />
+            {errors.submit}
+          </p>
+        </div>
+      )}
+
       {/* Full Name */}
       <div>
         <label className="flex items-center text-white font-semibold mb-3">
