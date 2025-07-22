@@ -1237,6 +1237,9 @@ const App = () => {
           </div>
         </div>
       </footer>
+      
+      {/* Cookie Consent Bar */}
+      <CookieConsent />
       </div>
     </AuthProvider>
   );
