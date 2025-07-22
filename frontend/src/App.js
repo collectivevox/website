@@ -301,6 +301,36 @@ const App = () => {
         </motion.div>
       </section>
 
+      {/* Profiling Form Section */}
+      <section className="py-20 bg-black">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
+              Get Your <span className="text-orange-400">Free Assessment</span>
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
+              Complete this 2 minute profiling form and we'll contact you within 24 hours to arrange a free 20 minute profiling call to onboard you into our members area.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="bg-gray-800/90 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-gray-700"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <ProfilingForm />
+          </motion.div>
+        </div>
+      </section>
+
       {/* Founder Section */}
       <section className="py-20 bg-gradient-to-b from-black to-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
