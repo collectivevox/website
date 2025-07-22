@@ -76,18 +76,20 @@ const ProfilingForm = () => {
             submitted_at: new Date().toISOString(),
             status: 'new'
           }
-        ]);
+        ])
+        .select();
 
       if (error) {
         console.error('Supabase error:', error);
-        setErrors({ submit: 'There was an error submitting your form. Please try again.' });
+        // Show more specific error message
+        setErrors({ submit: `Database error: ${error.message}. Please contact support if this persists.` });
       } else {
         console.log('Assessment submitted successfully:', data);
         setIsSubmitted(true);
       }
     } catch (error) {
       console.error('Error submitting form:', error);
-      setErrors({ submit: 'There was an error submitting your form. Please try again.' });
+      setErrors({ submit: `Network error: ${error.message}. Please check your connection and try again.` });
     } finally {
       setIsSubmitting(false);
     }
