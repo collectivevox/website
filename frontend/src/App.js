@@ -25,6 +25,9 @@ import { AuthProvider, useAuth } from './contexts/AuthContext';
 import AuthModal from './components/Auth/AuthModal';
 import UserMenu from './components/Auth/UserMenu';
 
+// Component imports
+import ProfilingForm from './components/ProfilingForm';
+
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
   animate: { opacity: 1, y: 0 },
