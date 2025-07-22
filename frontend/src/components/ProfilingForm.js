@@ -88,49 +88,56 @@ const ProfilingForm = () => {
     }
 
     setIsSubmitting(true);
-    setErrors({}); // Clear any previous errors
+    setErrors({});
     
     try {
-      console.log('Submitting assessment data:', formData);
-      console.log('Supabase URL:', process.env.REACT_APP_SUPABASE_URL);
-      
-      // Simple insert without complex error handling first
+      // Try a more direct approach with upsert
       const { data, error } = await supabase
         .from('assessments')
-        .insert({
+        .upsert({
           full_name: formData.fullName,
           email: formData.email,
           industry: formData.industry,
           job_title: formData.jobTitle,
           challenge_1: formData.challenge1,
           challenge_2: formData.challenge2,
-          status: 'new'
+          status: 'new',
+          created_at: new Date().toISOString()
+        }, {
+          onConflict: 'email'
         })
         .select();
 
-      console.log('Supabase response - data:', data);
-      console.log('Supabase response - error:', error);
-
       if (error) {
-        console.error('Supabase error details:', {
-          message: error.message,
-          details: error.details,
-          hint: error.hint,
-          code: error.code
-        });
-        
-        setErrors({ 
-          submit: `Error: ${error.message}${error.details ? ` - ${error.details}` : ''}` 
-        });
+        console.error('Supabase error:', error);
+        // Try the simple approach if upsert fails
+        if (error.message.includes('policy')) {
+          const { data: insertData, error: insertError } = await supabase
+            .from('assessments')
+            .insert({
+              full_name: formData.fullName,
+              email: formData.email,
+              industry: formData.industry,
+              job_title: formData.jobTitle,
+              challenge_1: formData.challenge1,
+              challenge_2: formData.challenge2,
+              status: 'new'
+            });
+            
+          if (insertError) {
+            setErrors({ submit: `Database error: ${insertError.message}` });
+          } else {
+            setIsSubmitted(true);
+          }
+        } else {
+          setErrors({ submit: `Error: ${error.message}` });
+        }
       } else {
-        console.log('Success! Assessment submitted:', data);
         setIsSubmitted(true);
       }
     } catch (error) {
-      console.error('Catch error:', error);
-      setErrors({ 
-        submit: `Network error: ${error.message}` 
-      });
+      console.error('Network error:', error);
+      setErrors({ submit: `Network error: ${error.message}` });
     } finally {
       setIsSubmitting(false);
     }
