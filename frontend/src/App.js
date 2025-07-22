@@ -182,7 +182,9 @@ const Navigation = () => {
                 <UserMenu />
               ) : (
                 <button 
-                  onClick={() => setAuthModalOpen(true)}
+                  onClick={() => {
+                    document.getElementById('profiling-form').scrollIntoView({ behavior: 'smooth' });
+                  }}
                   className="bg-orange-500 hover:bg-orange-600 px-6 py-2 rounded-full text-white font-semibold transition-all transform hover:scale-105"
                 >
                   Join Community
