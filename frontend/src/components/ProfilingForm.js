@@ -16,34 +16,6 @@ const ProfilingForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
-  const [connectionTest, setConnectionTest] = useState('');
-
-  // Test connection function
-  const testConnection = async () => {
-    try {
-      console.log('Environment variables check:');
-      console.log('SUPABASE_URL:', process.env.REACT_APP_SUPABASE_URL);
-      console.log('SUPABASE_KEY exists:', !!process.env.REACT_APP_SUPABASE_ANON_KEY);
-      console.log('Supabase client exists:', !!supabase);
-      
-      setConnectionTest('Testing connection...');
-      
-      const { data, error, count } = await supabase
-        .from('assessments')
-        .select('*', { count: 'exact', head: true });
-      
-      if (error) {
-        setConnectionTest(`❌ Error: ${error.message} (Code: ${error.code})`);
-        console.error('Connection test failed:', error);
-      } else {
-        setConnectionTest(`✅ Connected! Table has ${count || 0} records`);
-        console.log('Connection test passed. Record count:', count);
-      }
-    } catch (err) {
-      setConnectionTest(`❌ Network Error: ${err.message}`);
-      console.error('Network error:', err);
-    }
-  };
 
   const handleChange = (e) => {
     setFormData({
