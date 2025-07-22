@@ -485,25 +485,26 @@ const App = () => {
       </section>
 
       {/* How It Works Section */}
-      <section id="how-it-works" className="py-20 bg-gray-900">
+      <section id="how-it-works" className="py-12 sm:py-16 lg:py-20 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
-            className="text-center mb-16"
+            className="text-center mb-10 sm:mb-12 lg:mb-16"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
               How <span className="text-orange-400">It Works</span>
             </h2>
-            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto px-2 sm:px-0">
               Structured 90-minute workshops with AI-powered matching for maximum impact
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <motion.div
+              className="order-2 lg:order-1"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -512,17 +513,18 @@ const App = () => {
               <img 
                 src="https://images.pexels.com/photos/1181715/pexels-photo-1181715.jpeg" 
                 alt="Professional coaching session"
-                className="rounded-2xl shadow-2xl"
+                className="rounded-2xl shadow-2xl w-full"
               />
             </motion.div>
 
             <motion.div
+              className="order-1 lg:order-2"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 {[
                   {
                     step: "01",
@@ -545,13 +547,13 @@ const App = () => {
                     description: "Leave with concrete next steps from peer insights plus AI-generated summaries for ongoing reference"
                   }
                 ].map((item, index) => (
-                  <div key={index} className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center">
-                      <span className="text-white font-bold">{item.step}</span>
+                  <div key={index} className="flex items-start space-x-3 sm:space-x-4">
+                    <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-orange-500 rounded-full flex items-center justify-center">
+                      <span className="text-white font-bold text-sm sm:text-base">{item.step}</span>
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-white mb-2">{item.title}</h3>
-                      <p className="text-gray-300">{item.description}</p>
+                      <h3 className="text-lg sm:text-xl font-semibold text-white mb-1 sm:mb-2">{item.title}</h3>
+                      <p className="text-sm sm:text-base text-gray-300 leading-relaxed">{item.description}</p>
                     </div>
                   </div>
                 ))}
