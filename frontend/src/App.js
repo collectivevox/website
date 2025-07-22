@@ -676,13 +676,40 @@ const App = () => {
           </motion.div>
 
           <motion.div
-            className="bg-gray-800/90 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-gray-700"
+            className="bg-gray-800/90 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-gray-700 mb-12"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
             <ProfilingForm />
+          </motion.div>
+
+          {/* Contact Form */}
+          <motion.div 
+            id="contact-form"
+            className="text-center mb-8"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+              Not Ready Yet? <span className="text-orange-400">Get In Touch</span>
+            </h3>
+            <p className="text-gray-300 max-w-2xl mx-auto mb-8">
+              Have questions about our peer coaching community? We're here to help you understand how Collective Vox can support your professional growth.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="bg-gray-800/90 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-gray-700"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            <ContactForm />
           </motion.div>
         </div>
       </section>
