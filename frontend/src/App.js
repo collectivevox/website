@@ -144,34 +144,48 @@ const Navigation = () => {
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-32">
+          <div className="flex justify-between items-center h-20 sm:h-28 lg:h-32">
             <div className="flex items-center">
               <img 
                 src="https://i.imgur.com/92sS3DS.png" 
                 alt="Collective Vox - Global Peer Coaching Community" 
-                className="h-36 w-auto cursor-pointer transition-opacity hover:opacity-80"
+                className="h-16 sm:h-24 lg:h-36 w-auto cursor-pointer transition-opacity hover:opacity-80"
                 onClick={() => {
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
               />
             </div>
+            
+            {/* Mobile Menu Button */}
+            <div className="md:hidden">
+              <button 
+                onClick={() => {
+                  document.getElementById('profiling-form').scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded-full text-white text-sm font-semibold transition-all transform hover:scale-105"
+              >
+                Join Now
+              </button>
+            </div>
+
+            {/* Desktop Navigation */}
             <div className="hidden md:flex items-center justify-center flex-1">
-              <div className="flex items-center space-x-8">
-                <a href="#case-studies" className="text-gray-300 hover:text-orange-400 transition-colors">Case Studies</a>
-                <a href="#how-it-works" className="text-gray-300 hover:text-orange-400 transition-colors">How It Works</a>
-                <a href="#tiers" className="text-gray-300 hover:text-orange-400 transition-colors">Membership</a>
-                <a href="#benefits" className="text-gray-300 hover:text-orange-400 transition-colors">Benefits</a>
+              <div className="flex items-center space-x-6 lg:space-x-8">
+                <a href="#case-studies" className="text-gray-300 hover:text-orange-400 transition-colors text-sm lg:text-base">Case Studies</a>
+                <a href="#how-it-works" className="text-gray-300 hover:text-orange-400 transition-colors text-sm lg:text-base">How It Works</a>
+                <a href="#tiers" className="text-gray-300 hover:text-orange-400 transition-colors text-sm lg:text-base">Membership</a>
+                <a href="#benefits" className="text-gray-300 hover:text-orange-400 transition-colors text-sm lg:text-base">Benefits</a>
                 <button 
                   onClick={() => {
                     document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' });
                   }}
-                  className="text-gray-300 hover:text-orange-400 transition-colors"
+                  className="text-gray-300 hover:text-orange-400 transition-colors text-sm lg:text-base"
                 >
                   Contact
                 </button>
               </div>
               
-              <div className="ml-8">
+              <div className="ml-6 lg:ml-8">
                 {user ? (
                   <UserMenu />
                 ) : (
@@ -179,7 +193,7 @@ const Navigation = () => {
                     onClick={() => {
                       document.getElementById('profiling-form').scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className="bg-orange-500 hover:bg-orange-600 px-6 py-2 rounded-full text-white font-semibold transition-all transform hover:scale-105"
+                    className="bg-orange-500 hover:bg-orange-600 px-4 lg:px-6 py-2 rounded-full text-white text-sm lg:text-base font-semibold transition-all transform hover:scale-105"
                   >
                     Join Community
                   </button>
