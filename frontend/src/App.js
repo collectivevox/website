@@ -149,7 +149,7 @@ const Navigation = () => {
               <img 
                 src="https://i.imgur.com/92sS3DS.png" 
                 alt="Collective Vox - Global Peer Coaching Community" 
-                className="h-48 w-auto cursor-pointer transition-opacity hover:opacity-80"
+                className="h-36 w-auto cursor-pointer transition-opacity hover:opacity-80"
                 onClick={() => {
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
