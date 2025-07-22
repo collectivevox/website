@@ -63,48 +63,25 @@ const ProfilingForm = () => {
     setErrors({});
     
     try {
-      // Try a more direct approach with upsert
+      // Simple insert without upsert
       const { data, error } = await supabase
         .from('assessments')
-        .upsert({
+        .insert({
           full_name: formData.fullName,
           email: formData.email,
           industry: formData.industry,
           job_title: formData.jobTitle,
           challenge_1: formData.challenge1,
           challenge_2: formData.challenge2,
-          status: 'new',
-          created_at: new Date().toISOString()
-        }, {
-          onConflict: 'email'
+          status: 'new'
         })
         .select();
 
       if (error) {
         console.error('Supabase error:', error);
-        // Try the simple approach if upsert fails
-        if (error.message.includes('policy')) {
-          const { data: insertData, error: insertError } = await supabase
-            .from('assessments')
-            .insert({
-              full_name: formData.fullName,
-              email: formData.email,
-              industry: formData.industry,
-              job_title: formData.jobTitle,
-              challenge_1: formData.challenge1,
-              challenge_2: formData.challenge2,
-              status: 'new'
-            });
-            
-          if (insertError) {
-            setErrors({ submit: `Database error: ${insertError.message}` });
-          } else {
-            setIsSubmitted(true);
-          }
-        } else {
-          setErrors({ submit: `Error: ${error.message}` });
-        }
+        setErrors({ submit: `Error: ${error.message}` });
       } else {
+        console.log('Success! Assessment submitted:', data);
         setIsSubmitted(true);
       }
     } catch (error) {
