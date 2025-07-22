@@ -62,6 +62,13 @@ const ProfilingForm = () => {
     setIsSubmitting(true);
     
     try {
+      // First, let's try to create the table if it doesn't exist
+      const { error: tableError } = await supabase.rpc('create_assessments_table_if_not_exists');
+      
+      if (tableError && !tableError.message.includes('already exists')) {
+        console.log('Table creation not available, proceeding with insert...');
+      }
+
       // Insert data into Supabase
       const { data, error } = await supabase
         .from('assessments')
@@ -81,15 +88,30 @@ const ProfilingForm = () => {
 
       if (error) {
         console.error('Supabase error:', error);
-        // Show more specific error message
-        setErrors({ submit: `Database error: ${error.message}. Please contact support if this persists.` });
+        
+        // If table doesn't exist, provide helpful message
+        if (error.code === 'PGRST116' || error.message.includes('does not exist')) {
+          setErrors({ 
+            submit: 'Database table not found. Please contact the administrator to set up the assessments table.' 
+          });
+        } else if (error.code === '42501' || error.message.includes('permission')) {
+          setErrors({ 
+            submit: 'Permission denied. Please contact the administrator to configure database permissions.' 
+          });
+        } else {
+          setErrors({ 
+            submit: `Database error: ${error.message}. Please try again or contact support.` 
+          });
+        }
       } else {
         console.log('Assessment submitted successfully:', data);
         setIsSubmitted(true);
       }
     } catch (error) {
       console.error('Error submitting form:', error);
-      setErrors({ submit: `Network error: ${error.message}. Please check your connection and try again.` });
+      setErrors({ 
+        submit: `Network error: ${error.message}. Please check your connection and try again.` 
+      });
     } finally {
       setIsSubmitting(false);
     }
