@@ -155,24 +155,36 @@ const Navigation = () => {
                 }}
               />
             </div>
-            <div className="hidden md:flex items-center space-x-8">
-              <a href="#case-studies" className="text-gray-300 hover:text-orange-400 transition-colors">Case Studies</a>
-              <a href="#how-it-works" className="text-gray-300 hover:text-orange-400 transition-colors">How It Works</a>
-              <a href="#tiers" className="text-gray-300 hover:text-orange-400 transition-colors">Membership</a>
-              <a href="#benefits" className="text-gray-300 hover:text-orange-400 transition-colors">Benefits</a>
-              
-              {user ? (
-                <UserMenu />
-              ) : (
+            <div className="hidden md:flex items-center justify-center flex-1">
+              <div className="flex items-center space-x-8">
+                <a href="#case-studies" className="text-gray-300 hover:text-orange-400 transition-colors">Case Studies</a>
+                <a href="#how-it-works" className="text-gray-300 hover:text-orange-400 transition-colors">How It Works</a>
+                <a href="#tiers" className="text-gray-300 hover:text-orange-400 transition-colors">Membership</a>
+                <a href="#benefits" className="text-gray-300 hover:text-orange-400 transition-colors">Benefits</a>
                 <button 
                   onClick={() => {
-                    document.getElementById('profiling-form').scrollIntoView({ behavior: 'smooth' });
+                    document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' });
                   }}
-                  className="bg-orange-500 hover:bg-orange-600 px-6 py-2 rounded-full text-white font-semibold transition-all transform hover:scale-105"
+                  className="text-gray-300 hover:text-orange-400 transition-colors"
                 >
-                  Join Community
+                  Contact
                 </button>
-              )}
+              </div>
+              
+              <div className="ml-8">
+                {user ? (
+                  <UserMenu />
+                ) : (
+                  <button 
+                    onClick={() => {
+                      document.getElementById('profiling-form').scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="bg-orange-500 hover:bg-orange-600 px-6 py-2 rounded-full text-white font-semibold transition-all transform hover:scale-105"
+                  >
+                    Join Community
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         </div>
