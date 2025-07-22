@@ -60,57 +60,48 @@ const ProfilingForm = () => {
     }
 
     setIsSubmitting(true);
+    setErrors({}); // Clear any previous errors
     
     try {
-      // First, let's try to create the table if it doesn't exist
-      const { error: tableError } = await supabase.rpc('create_assessments_table_if_not_exists');
+      console.log('Submitting assessment data:', formData);
+      console.log('Supabase URL:', process.env.REACT_APP_SUPABASE_URL);
       
-      if (tableError && !tableError.message.includes('already exists')) {
-        console.log('Table creation not available, proceeding with insert...');
-      }
-
-      // Insert data into Supabase
+      // Simple insert without complex error handling first
       const { data, error } = await supabase
         .from('assessments')
-        .insert([
-          {
-            full_name: formData.fullName,
-            email: formData.email,
-            industry: formData.industry,
-            job_title: formData.jobTitle,
-            challenge_1: formData.challenge1,
-            challenge_2: formData.challenge2,
-            submitted_at: new Date().toISOString(),
-            status: 'new'
-          }
-        ])
+        .insert({
+          full_name: formData.fullName,
+          email: formData.email,
+          industry: formData.industry,
+          job_title: formData.jobTitle,
+          challenge_1: formData.challenge1,
+          challenge_2: formData.challenge2,
+          status: 'new'
+        })
         .select();
 
+      console.log('Supabase response - data:', data);
+      console.log('Supabase response - error:', error);
+
       if (error) {
-        console.error('Supabase error:', error);
+        console.error('Supabase error details:', {
+          message: error.message,
+          details: error.details,
+          hint: error.hint,
+          code: error.code
+        });
         
-        // If table doesn't exist, provide helpful message
-        if (error.code === 'PGRST116' || error.message.includes('does not exist')) {
-          setErrors({ 
-            submit: 'Database table not found. Please contact the administrator to set up the assessments table.' 
-          });
-        } else if (error.code === '42501' || error.message.includes('permission')) {
-          setErrors({ 
-            submit: 'Permission denied. Please contact the administrator to configure database permissions.' 
-          });
-        } else {
-          setErrors({ 
-            submit: `Database error: ${error.message}. Please try again or contact support.` 
-          });
-        }
+        setErrors({ 
+          submit: `Error: ${error.message}${error.details ? ` - ${error.details}` : ''}` 
+        });
       } else {
-        console.log('Assessment submitted successfully:', data);
+        console.log('Success! Assessment submitted:', data);
         setIsSubmitted(true);
       }
     } catch (error) {
-      console.error('Error submitting form:', error);
+      console.error('Catch error:', error);
       setErrors({ 
-        submit: `Network error: ${error.message}. Please check your connection and try again.` 
+        submit: `Network error: ${error.message}` 
       });
     } finally {
       setIsSubmitting(false);
