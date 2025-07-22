@@ -118,37 +118,30 @@ const TierButton = ({ tier, children }) => {
 // Hero CTA Component
 const HeroCTA = () => {
   const { user } = useAuth();
-  const [authModalOpen, setAuthModalOpen] = useState(false);
 
   return (
-    <>
-      <motion.div 
-        className="flex flex-col sm:flex-row gap-4 justify-center"
-        variants={fadeInUp}
+    <motion.div 
+      className="flex flex-col sm:flex-row gap-4 justify-center"
+      variants={fadeInUp}
+    >
+      <button 
+        onClick={() => {
+          document.getElementById('profiling-form').scrollIntoView({ behavior: 'smooth' });
+        }}
+        className="bg-orange-500 hover:bg-orange-600 px-8 py-4 rounded-full text-white text-lg font-semibold transition-all transform hover:scale-105 shadow-lg hover:shadow-orange-500/25"
       >
-        <button 
-          onClick={() => setAuthModalOpen(true)}
-          className="bg-orange-500 hover:bg-orange-600 px-8 py-4 rounded-full text-white text-lg font-semibold transition-all transform hover:scale-105 shadow-lg hover:shadow-orange-500/25"
-        >
-          {user ? 'Access Dashboard' : 'Start Your Journey'}
-          <ArrowRight className="inline ml-2 h-5 w-5" />
-        </button>
-        <button 
-          onClick={() => {
-            document.getElementById('how-it-works').scrollIntoView({ behavior: 'smooth' });
-          }}
-          className="border-2 border-white/20 backdrop-blur-sm px-8 py-4 rounded-full text-white text-lg font-semibold hover:bg-white/10 transition-all"
-        >
-          Learn More
-        </button>
-      </motion.div>
-
-      <AuthModal 
-        isOpen={authModalOpen} 
-        onClose={() => setAuthModalOpen(false)} 
-        initialTab="signup"
-      />
-    </>
+        {user ? 'Complete Assessment' : 'Start Your Journey'}
+        <ArrowRight className="inline ml-2 h-5 w-5" />
+      </button>
+      <button 
+        onClick={() => {
+          document.getElementById('how-it-works').scrollIntoView({ behavior: 'smooth' });
+        }}
+        className="border-2 border-white/20 backdrop-blur-sm px-8 py-4 rounded-full text-white text-lg font-semibold hover:bg-white/10 transition-all"
+      >
+        Learn More
+      </button>
+    </motion.div>
   );
 };
 
