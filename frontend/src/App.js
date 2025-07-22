@@ -290,13 +290,13 @@ const App = () => {
         ></div>
         
         <motion.div 
-          className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+          className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-8 sm:py-12 lg:py-0"
           variants={staggerContainer}
           initial="initial"
           animate="animate"
         >
           <motion.h1 
-            className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent leading-tight"
             variants={fadeInUp}
           >
             Unlock Global
@@ -304,7 +304,7 @@ const App = () => {
           </motion.h1>
           
           <motion.p 
-            className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0"
             variants={fadeInUp}
           >
             Join a worldwide community of professionals sharing wisdom, experience, and insights. 
