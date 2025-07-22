@@ -21,18 +21,26 @@ const ProfilingForm = () => {
   // Test connection function
   const testConnection = async () => {
     try {
-      console.log('Testing Supabase connection...');
-      const { data, error } = await supabase.from('assessments').select('count').limit(1);
+      console.log('Environment variables check:');
+      console.log('SUPABASE_URL:', process.env.REACT_APP_SUPABASE_URL);
+      console.log('SUPABASE_KEY exists:', !!process.env.REACT_APP_SUPABASE_ANON_KEY);
+      console.log('Supabase client exists:', !!supabase);
+      
+      setConnectionTest('Testing connection...');
+      
+      const { data, error, count } = await supabase
+        .from('assessments')
+        .select('*', { count: 'exact', head: true });
       
       if (error) {
-        setConnectionTest(`Connection Error: ${error.message}`);
+        setConnectionTest(`❌ Error: ${error.message} (Code: ${error.code})`);
         console.error('Connection test failed:', error);
       } else {
-        setConnectionTest('✅ Connection successful!');
-        console.log('Connection test passed:', data);
+        setConnectionTest(`✅ Connected! Table has ${count || 0} records`);
+        console.log('Connection test passed. Record count:', count);
       }
     } catch (err) {
-      setConnectionTest(`Network Error: ${err.message}`);
+      setConnectionTest(`❌ Network Error: ${err.message}`);
       console.error('Network error:', err);
     }
   };
