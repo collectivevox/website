@@ -26,6 +26,7 @@ import AuthModal from './components/Auth/AuthModal';
 import UserMenu from './components/Auth/UserMenu';
 import ContactForm from './components/ContactForm';
 import ProfilingForm from './components/ProfilingForm';
+import CookieConsent from './components/CookieConsent';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
