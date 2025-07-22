@@ -1216,8 +1216,14 @@ const App = () => {
             <div>
               <h4 className="text-white font-semibold mb-4">Support</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-orange-400 transition-colors">Help Center</a></li>
-                <li><a href="#" className="hover:text-orange-400 transition-colors">Contact Us</a></li>
+                <li>
+                  <button 
+                    onClick={() => document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' })}
+                    className="hover:text-orange-400 transition-colors text-left"
+                  >
+                    Contact Us
+                  </button>
+                </li>
                 <li><a href="#" className="hover:text-orange-400 transition-colors">Community Guidelines</a></li>
                 <li><a href="#" className="hover:text-orange-400 transition-colors">Privacy Policy</a></li>
               </ul>
@@ -1226,9 +1232,9 @@ const App = () => {
               <h4 className="text-white font-semibold mb-4">Connect</h4>
               <ul className="space-y-2 text-gray-400">
                 <li><a href="#" className="hover:text-orange-400 transition-colors">LinkedIn</a></li>
-                <li><a href="#" className="hover:text-orange-400 transition-colors">Twitter</a></li>
-                <li><a href="#" className="hover:text-orange-400 transition-colors">Newsletter</a></li>
-                <li><a href="#" className="hover:text-orange-400 transition-colors">Blog</a></li>
+                <li><a href="#" className="hover:text-orange-400 transition-colors">X (Twitter)</a></li>
+                <li><a href="#" className="hover:text-orange-400 transition-colors">Instagram</a></li>
+                <li><a href="#" className="hover:text-orange-400 transition-colors">TikTok</a></li>
               </ul>
             </div>
           </div>
