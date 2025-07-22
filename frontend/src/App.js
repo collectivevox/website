@@ -147,9 +147,9 @@ const Navigation = () => {
           <div className="flex justify-between items-center h-36">
             <div className="flex items-center">
               <img 
-                src="https://i.imgur.com/MrJUKVH.png" 
+                src="https://i.imgur.com/92sS3DS.png" 
                 alt="Collective Vox - Global Peer Coaching Community" 
-                className="h-64 w-auto cursor-pointer transition-opacity hover:opacity-80"
+                className="h-80 w-auto cursor-pointer transition-opacity hover:opacity-80"
                 onClick={() => {
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
