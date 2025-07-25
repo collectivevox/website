@@ -17,7 +17,8 @@ import {
   Zap,
   ChevronLeft,
   ChevronRight,
-  Linkedin
+  Linkedin,
+  X
 } from "lucide-react";
 
 // Auth imports
