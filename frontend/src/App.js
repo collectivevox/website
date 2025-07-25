@@ -922,7 +922,7 @@ const App = () => {
                   { stars: 2, description: "Providing valuable insights consistently" },
                   { stars: 3, description: "Recognized for exceptional peer support" },
                   { stars: 4, description: "Established as a go-to wisdom provider" },
-                  { stars: 5, description: "Elite mentor with platform promotion" }
+                  { stars: 5, description: "ELITE MENTOR with platform promotion" }
                 ].map((badge, index) => (
                   <div key={index} className={`flex items-center space-x-4 rounded-xl p-4 border ${
                     badge.stars === 5 
