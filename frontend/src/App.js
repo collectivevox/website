@@ -604,7 +604,7 @@ const App = () => {
                   {
                     step: "03", 
                     title: "90-Minute Workshops",
-                    description: "Each participant gets 30 minutes: 15 to share their challenge, 15 to receive peer insights and wisdom"
+                    description: "Each participant gets 30 minutes: 15 to share their challenge, 15 to receive peer insights and wisdom, all led by an experienced facilitator"
                   },
                   {
                     step: "04",
