@@ -290,7 +290,7 @@ const App = () => {
         ></div>
         
         <motion.div 
-          className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-12 sm:py-16 lg:py-0"
+          className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20 sm:py-16 lg:py-0 mt-16 sm:mt-0"
           variants={staggerContainer}
           initial="initial"
           animate="animate"
@@ -308,7 +308,7 @@ const App = () => {
             variants={fadeInUp}
           >
             Join a worldwide community of professionals sharing wisdom, experience, and insights. 
-            Get actionable answers to your toughest challenges without compromising your credibility.
+            Get actionable answers to your toughest challenges without compromising your credibility in a psychologically safe environment.
           </motion.p>
           
           <HeroCTA />
