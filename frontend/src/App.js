@@ -403,6 +403,52 @@ const App = () => {
       impact: "40% Faster",
       details: "Within three months, James's team accelerated delivery by 40% while significantly improving code quality. Team satisfaction scores jumped from 2.1 to 4.3 out of 5. His direct reports began proposing innovative solutions and taking ownership of complex problems. The transformation was so dramatic that James became the company's go-to mentor for other struggling managers.",
       quote: "I never imagined that theater directing and emergency medicine could teach me about software management. The combination of creative freedom with structured checkpoints was exactly what my team needed."
+    },
+    {
+      id: 3,
+      title: "Breaking Category Conventions",
+      subtitle: "How B2B SaaS Marketing Learned from Luxury Hospitality",
+      name: "Alex Rivera",
+      initials: "AR",
+      role: "CMO, Enterprise Software Company",
+      challenge: "Alex's B2B software company was hemorrhaging market share to competitors despite having superior technology. Their marketing felt generic and failed to differentiate in a crowded marketplace. Traditional B2B tactics—white papers, webinars, cold outreach—generated leads but no emotional connection. With a 40% customer churn rate and declining renewal values, Alex needed to transform how enterprise buyers perceived their brand.",
+      peers: [
+        {
+          title: "Luxury Hotel General Manager (Hospitality)",
+          insight: "We don't sell rooms; we sell experiences and status. Every touchpoint reinforces exclusivity and personalized service. Your software doesn't solve problems—it elevates your clients' professional reputation. Make them feel elite for choosing you."
+        },
+        {
+          title: "Museum Curator (Arts)",
+          insight: "We make ancient artifacts feel urgent and relevant. Your challenge isn't explaining features—it's creating intellectual curiosity. Tell stories that make executives feel smarter for understanding your vision first."
+        }
+      ],
+      breakthrough: "These insights inspired Alex's 'Executive Intelligence Platform' rebrand. Instead of promoting software features, they positioned their tool as exclusive intelligence that forward-thinking leaders use to stay ahead. Like the luxury hotel, they created VIP customer experiences. Following the curator's approach, they crafted thought leadership that made executives feel intellectually superior for 'discovering' trends early.",
+      impact: "180% Growth",
+      details: "Within eight months, customer lifetime value increased 180% while churn dropped to 12%. The \"exclusive intelligence\" positioning attracted C-suite buyers who previously ignored their outreach. Premium pricing became defensible because clients viewed the platform as competitive advantage, not commodity software. Alex's team won three industry marketing awards for their category-redefining approach.",
+      quote: "Hospitality taught me that B2B buyers are still humans who want to feel special. The museum curator showed me how to make complex technology feel like insider knowledge. Game-changing combination."
+    },
+    {
+      id: 4,
+      title: "Patient Experience Revolution",
+      subtitle: "How Healthcare Transformed Through Retail and Sports Psychology",
+      name: "Dr. Priya Kapoor",
+      initials: "DK",
+      role: "Chief Medical Officer, Regional Hospital Network",
+      challenge: "Dr. Kapoor's hospital network faced a patient satisfaction crisis with scores in the bottom 10% nationally. Despite excellent clinical outcomes, patients complained about feeling \"like numbers in a factory.\" Long wait times, impersonal interactions, and confusing processes were driving patients to competitors. Traditional healthcare consulting offered process improvements but couldn't solve the underlying experience problem.",
+      peers: [
+        {
+          title: "Luxury Retail Store Manager (Fashion)",
+          insight: "We treat every customer like they're spending their last $100 with us. Create 'moments of truth'—small gestures that make huge emotional impact. A warm greeting, remembering their name, explaining wait times proactively. Transform anxiety into anticipation."
+        },
+        {
+          title: "Olympic Sports Psychologist (Athletics)",
+          insight: "Athletes perform better when they feel in control of their environment. Give patients agency through choice architecture—let them choose appointment times, communication preferences, even which gown color. Control reduces anxiety and improves outcomes."
+        }
+      ],
+      breakthrough: "These insights led to Dr. Kapoor's \"Patient Empowerment Protocol\"—treating each patient interaction like a luxury retail experience while giving patients meaningful choices throughout their journey. Staff received \"moments of truth\" training from retail experts, while the sports psychology approach introduced patient choice points that reduced anxiety and improved compliance with treatment plans.",
+      impact: "92nd Percentile",
+      details: "Patient satisfaction scores jumped to the 92nd percentile nationally within one year. More importantly, patient outcomes improved as anxiety-reduced patients followed treatment protocols more effectively. Staff satisfaction increased 40% as they felt empowered to create positive experiences. The network became a case study for patient-centered care, attracting top medical talent and premium insurance partnerships.",
+      quote: "Retail taught us that every interaction is an opportunity to exceed expectations. Sports psychology showed us that patient anxiety was sabotaging our clinical excellence. Together, they revolutionized how we deliver care."
     }
   ];
 
