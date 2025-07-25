@@ -831,7 +831,7 @@ const App = () => {
               Get Your <span className="text-orange-400">Free Assessment</span>
             </h2>
             <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
-              Complete this 2 minute profiling form and we'll contact you within 24 hours to arrange a free 20 minute profiling call to onboard you into our members area.
+              Complete this 2 minute profiling form and we'll contact you within 24 hours to arrange a FREE 20 minute profiling call to onboard you into our members area.
             </p>
           </motion.div>
 
