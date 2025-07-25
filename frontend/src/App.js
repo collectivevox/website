@@ -943,94 +943,112 @@ const App = () => {
       </section>
 
       {/* Case Studies Section */}
-      <section id="case-studies" className="py-20 bg-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="case-studies" className="py-12 sm:py-20 bg-black">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
           <motion.div 
-            className="text-center mb-16"
+            className="text-center mb-8 sm:mb-16"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-6">
               Success <span className="text-orange-400">Case Studies</span>
             </h2>
-            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-sm sm:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto px-1 sm:px-0">
               Real results from cross-industry collaboration
             </p>
           </motion.div>
 
           {/* Case Study Container */}
           <div className="relative">
-            {/* Navigation Arrows */}
+            {/* Navigation Arrows - Hidden on mobile for better layout */}
             <button 
               onClick={prevCaseStudy}
-              className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-orange-500 hover:bg-orange-600 text-white p-3 rounded-full transition-all hover:scale-110 shadow-lg"
+              className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-orange-500 hover:bg-orange-600 text-white p-2 sm:p-3 rounded-full transition-all hover:scale-110 shadow-lg hidden sm:block"
             >
-              <ChevronLeft className="h-6 w-6" />
+              <ChevronLeft className="h-4 w-4 sm:h-6 sm:w-6" />
             </button>
             
             <button 
               onClick={nextCaseStudy}
-              className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-orange-500 hover:bg-orange-600 text-white p-3 rounded-full transition-all hover:scale-110 shadow-lg"
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-orange-500 hover:bg-orange-600 text-white p-2 sm:p-3 rounded-full transition-all hover:scale-110 shadow-lg hidden sm:block"
             >
-              <ChevronRight className="h-6 w-6" />
+              <ChevronRight className="h-4 w-4 sm:h-6 sm:w-6" />
             </button>
+
+            {/* Mobile Navigation Buttons */}
+            <div className="flex justify-between sm:hidden mb-4">
+              <button 
+                onClick={prevCaseStudy}
+                className="bg-orange-500 hover:bg-orange-600 text-white px-3 py-2 rounded-lg transition-all"
+              >
+                <ChevronLeft className="h-4 w-4 inline mr-1" />
+                Previous
+              </button>
+              <button 
+                onClick={nextCaseStudy}
+                className="bg-orange-500 hover:bg-orange-600 text-white px-3 py-2 rounded-lg transition-all"
+              >
+                Next
+                <ChevronRight className="h-4 w-4 inline ml-1" />
+              </button>
+            </div>
 
             {/* Case Study Content */}
             <motion.div 
               key={currentCaseStudy}
-              className="bg-gradient-to-br from-gray-900 to-black rounded-3xl p-8 md:p-12 border border-gray-800 mx-16"
+              className="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-3 sm:p-8 md:p-12 border border-gray-800 mx-0 sm:mx-16"
               initial={{ opacity: 0, x: 100 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -100 }}
               transition={{ duration: 0.5 }}
             >
               {/* Header */}
-              <div className="text-center mb-12">
-                <h3 className="text-3xl md:text-4xl font-bold text-orange-400 mb-4">
+              <div className="text-left sm:text-center mb-6 sm:mb-12">
+                <h3 className="text-lg sm:text-3xl md:text-4xl font-bold text-orange-400 mb-2 sm:mb-4">
                   {currentCase.title}
                 </h3>
-                <p className="text-xl md:text-2xl text-white font-semibold">
+                <p className="text-sm sm:text-xl md:text-2xl text-white font-semibold">
                   {currentCase.subtitle}
                 </p>
               </div>
 
               {/* Profile */}
-              <div className="flex items-center justify-center mb-12">
-                <div className="flex items-center bg-gray-800/50 rounded-2xl p-6 backdrop-blur-sm">
-                  <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mr-6">
-                    <span className="text-white font-bold text-xl">{currentCase.initials}</span>
+              <div className="flex items-start sm:items-center sm:justify-center mb-6 sm:mb-12">
+                <div className="flex items-center bg-gray-800/50 rounded-xl p-3 sm:p-6 backdrop-blur-sm w-full sm:w-auto">
+                  <div className="w-10 h-10 sm:w-16 sm:h-16 bg-orange-500 rounded-full flex items-center justify-center mr-3 sm:mr-6 flex-shrink-0">
+                    <span className="text-white font-bold text-sm sm:text-xl">{currentCase.initials}</span>
                   </div>
-                  <div>
-                    <h4 className="text-2xl font-bold text-orange-400">{currentCase.name}</h4>
-                    <p className="text-gray-300 text-lg">{currentCase.role}</p>
+                  <div className="min-w-0">
+                    <h4 className="text-base sm:text-2xl font-bold text-orange-400 truncate">{currentCase.name}</h4>
+                    <p className="text-gray-300 text-xs sm:text-lg leading-tight">{currentCase.role}</p>
                   </div>
                 </div>
               </div>
 
               {/* The Challenge */}
-              <div className="mb-12">
-                <h4 className="text-2xl font-bold text-orange-400 mb-6">The Challenge</h4>
-                <div className="bg-gray-800/30 rounded-2xl p-6 border border-gray-700">
-                  <p className="text-white leading-relaxed text-lg">
+              <div className="mb-6 sm:mb-12">
+                <h4 className="text-base sm:text-2xl font-bold text-orange-400 mb-3 sm:mb-6">The Challenge</h4>
+                <div className="bg-gray-800/30 rounded-xl p-3 sm:p-6 border border-gray-700">
+                  <p className="text-white leading-relaxed text-xs sm:text-lg">
                     {currentCase.challenge}
                   </p>
                 </div>
               </div>
 
               {/* The Collective Intelligence */}
-              <div className="mb-12">
-                <h4 className="text-2xl font-bold text-orange-400 mb-6">The Collective Intelligence</h4>
-                <p className="text-white text-lg mb-6">
+              <div className="mb-6 sm:mb-12">
+                <h4 className="text-base sm:text-2xl font-bold text-orange-400 mb-3 sm:mb-6">The Collective Intelligence</h4>
+                <p className="text-white text-xs sm:text-lg mb-3 sm:mb-6">
                   Collective Vox's AI matched {currentCase.name.split(' ')[0]} with two unexpected peers:
                 </p>
                 
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="space-y-3 sm:grid sm:grid-cols-2 sm:gap-6 sm:space-y-0">
                   {currentCase.peers.map((peer, index) => (
-                    <div key={index} className="bg-gray-800/30 rounded-2xl p-6 border-l-4 border-orange-500">
-                      <h5 className="text-xl font-bold text-orange-400 mb-3">{peer.title}</h5>
-                      <p className="text-gray-300 italic leading-relaxed">
+                    <div key={index} className="bg-gray-800/30 rounded-xl p-3 sm:p-6 border-l-4 border-orange-500">
+                      <h5 className="text-sm sm:text-xl font-bold text-orange-400 mb-2 sm:mb-3">{peer.title}</h5>
+                      <p className="text-gray-300 italic leading-relaxed text-xs sm:text-base">
                         "{peer.insight}"
                       </p>
                     </div>
@@ -1039,25 +1057,25 @@ const App = () => {
               </div>
 
               {/* The Breakthrough */}
-              <div className="mb-12">
-                <h4 className="text-2xl font-bold text-orange-400 mb-6">The Breakthrough</h4>
-                <div className="bg-gray-800/30 rounded-2xl p-6 border border-gray-700">
-                  <p className="text-white leading-relaxed text-lg">
+              <div className="mb-6 sm:mb-12">
+                <h4 className="text-base sm:text-2xl font-bold text-orange-400 mb-3 sm:mb-6">The Breakthrough</h4>
+                <div className="bg-gray-800/30 rounded-xl p-3 sm:p-6 border border-gray-700">
+                  <p className="text-white leading-relaxed text-xs sm:text-lg">
                     {currentCase.breakthrough}
                   </p>
                 </div>
               </div>
 
               {/* The Impact */}
-              <div className="text-center">
-                <div className="bg-orange-500 rounded-2xl p-8 border-2 border-orange-400 shadow-xl">
-                  <h4 className="text-5xl md:text-6xl font-bold text-white mb-4">{currentCase.impact}</h4>
-                  <h5 className="text-2xl font-bold text-white mb-6">The Impact</h5>
-                  <p className="text-white leading-relaxed text-lg mb-6">
+              <div className="text-left sm:text-center">
+                <div className="bg-orange-500 rounded-xl p-4 sm:p-8 border-2 border-orange-400 shadow-xl">
+                  <h4 className="text-2xl sm:text-5xl md:text-6xl font-bold text-white mb-2 sm:mb-4">{currentCase.impact}</h4>
+                  <h5 className="text-base sm:text-2xl font-bold text-white mb-3 sm:mb-6">The Impact</h5>
+                  <p className="text-white leading-relaxed text-xs sm:text-lg mb-3 sm:mb-6">
                     {currentCase.details}
                   </p>
-                  <div className="bg-black/60 backdrop-blur-sm rounded-xl p-6 border border-gray-800">
-                    <p className="text-white italic text-xl">
+                  <div className="bg-black/60 backdrop-blur-sm rounded-lg p-3 sm:p-6 border border-gray-800">
+                    <p className="text-white italic text-xs sm:text-xl">
                       "{currentCase.quote}"
                     </p>
                   </div>
