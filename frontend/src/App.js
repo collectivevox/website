@@ -675,7 +675,7 @@ const App = () => {
                   {
                     step: "02",
                     title: "AI-Powered Matching",
-                    description: "Our intelligent system matches you with 2 peers based on complementary roles, industries, and challenges"
+                    description: "Our intelligent system matches you once per month with 2 peers based on complementary roles, industries, and challenges"
                   },
                   {
                     step: "03", 
