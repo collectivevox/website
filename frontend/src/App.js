@@ -139,12 +139,14 @@ const HeroCTA = () => {
 const Navigation = () => {
   const { user } = useAuth();
   const [authModalOpen, setAuthModalOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 sm:h-20 md:h-24 lg:h-28 xl:h-32">
+            {/* Logo */}
             <div className="flex items-center">
               <img 
                 src="https://i.imgur.com/92sS3DS.png" 
@@ -156,15 +158,32 @@ const Navigation = () => {
               />
             </div>
             
-            {/* Mobile Menu Button */}
-            <div className="md:hidden">
+            {/* Mobile Center Join Button */}
+            <div className="md:hidden flex-1 flex justify-center">
               <button 
                 onClick={() => {
                   document.getElementById('profiling-form').scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="bg-orange-500 hover:bg-orange-600 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-white text-xs sm:text-sm font-semibold transition-all transform hover:scale-105"
+                className="bg-orange-500 hover:bg-orange-600 px-3 py-1.5 rounded-full text-white text-xs font-semibold transition-all transform hover:scale-105"
               >
                 Join Now
+              </button>
+            </div>
+
+            {/* Mobile Hamburger Menu */}
+            <div className="md:hidden">
+              <button 
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="text-white p-2 rounded-md hover:bg-white/10 transition-colors"
+                aria-label="Toggle mobile menu"
+              >
+                {mobileMenuOpen ? (
+                  <X className="h-6 w-6" />
+                ) : (
+                  <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                )}
               </button>
             </div>
 
@@ -202,6 +221,51 @@ const Navigation = () => {
             </div>
           </div>
         </div>
+
+        {/* Mobile Menu Dropdown */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-black/95 backdrop-blur-md border-t border-gray-800">
+            <div className="px-4 py-4 space-y-3">
+              <a 
+                href="#case-studies" 
+                className="block text-gray-300 hover:text-orange-400 transition-colors py-2 text-base"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Case Studies
+              </a>
+              <a 
+                href="#how-it-works" 
+                className="block text-gray-300 hover:text-orange-400 transition-colors py-2 text-base"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                How It Works
+              </a>
+              <a 
+                href="#tiers" 
+                className="block text-gray-300 hover:text-orange-400 transition-colors py-2 text-base"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Membership
+              </a>
+              <a 
+                href="#benefits" 
+                className="block text-gray-300 hover:text-orange-400 transition-colors py-2 text-base"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Benefits
+              </a>
+              <button 
+                onClick={() => {
+                  document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' });
+                  setMobileMenuOpen(false);
+                }}
+                className="block text-gray-300 hover:text-orange-400 transition-colors py-2 text-base w-full text-left"
+              >
+                Contact
+              </button>
+            </div>
+          </div>
+        )}
       </nav>
 
       <AuthModal 
