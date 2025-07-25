@@ -888,7 +888,7 @@ const App = () => {
               Earn Your <span className="text-orange-400">Recognition</span>
             </h2>
             <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
-              Build your professional credibility through our 5-star rating system and facilitate workshops once you achieve your 'elite mentor' badge.
+              Build your professional credibility through our 5-star rating system and facilitate workshops once you achieve your 'ELITE MENTOR' badge.
             </p>
           </motion.div>
 
