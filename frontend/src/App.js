@@ -670,7 +670,7 @@ const App = () => {
                   {
                     step: "01",
                     title: "Selection Process",
-                    description: "Complete a 2-minute profiling form and participate in a 20-minute online profiling interview to ensure the best peer matches"
+                    description: "Complete a 2-minute profiling form and participate in a FREE 20-minute online profiling interview to ensure the best peer matches"
                   },
                   {
                     step: "02",
