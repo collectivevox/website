@@ -361,7 +361,7 @@ const App = () => {
           animate="animate"
         >
           <motion.h1 
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 lg:mb-8 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent leading-tight"
+            className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-3 sm:mb-6 lg:mb-8 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent leading-tight"
             variants={fadeInUp}
           >
             Unlock Global
@@ -369,7 +369,7 @@ const App = () => {
           </motion.h1>
           
           <motion.p 
-            className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-6 sm:mb-8 lg:mb-10 max-w-4xl mx-auto leading-relaxed px-2 sm:px-4 lg:px-0"
+            className="text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-5 sm:mb-8 lg:mb-10 max-w-4xl mx-auto leading-relaxed px-1 sm:px-4 lg:px-0"
             variants={fadeInUp}
           >
             Join a worldwide community of professionals sharing wisdom, experience, and insights. 
