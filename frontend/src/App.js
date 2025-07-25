@@ -914,7 +914,7 @@ const App = () => {
             >
               <div className="space-y-6">
                 <p className="text-gray-300 leading-relaxed text-lg mb-8">
-                  Build your professional credibility through our 5-star rating system and facilitate workshops once you achieve your 'elite mentor' badge.
+                  Build your professional credibility through our 5-star rating system and facilitate workshops once you achieve your 'ELITE MENTOR' badge.
                 </p>
                 
                 {[
