@@ -191,13 +191,61 @@ const Navigation = () => {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center justify-center flex-1">
               <div className="flex items-center space-x-4 lg:space-x-6 xl:space-x-8">
-                <a href="#case-studies" className="text-gray-300 hover:text-orange-400 transition-colors text-sm lg:text-base">Case Studies</a>
-                <a href="#how-it-works" className="text-gray-300 hover:text-orange-400 transition-colors text-sm lg:text-base">How It Works</a>
-                <a href="#tiers" className="text-gray-300 hover:text-orange-400 transition-colors text-sm lg:text-base">Membership</a>
-                <a href="#benefits" className="text-gray-300 hover:text-orange-400 transition-colors text-sm lg:text-base">Benefits</a>
                 <button 
                   onClick={() => {
-                    document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' });
+                    const element = document.getElementById('case-studies');
+                    const offset = 120; // Larger offset for desktop nav
+                    const elementPosition = element.offsetTop;
+                    const offsetPosition = elementPosition - offset;
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                  }}
+                  className="text-gray-300 hover:text-orange-400 transition-colors text-sm lg:text-base"
+                >
+                  Case Studies
+                </button>
+                <button 
+                  onClick={() => {
+                    const element = document.getElementById('how-it-works');
+                    const offset = 120;
+                    const elementPosition = element.offsetTop;
+                    const offsetPosition = elementPosition - offset;
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                  }}
+                  className="text-gray-300 hover:text-orange-400 transition-colors text-sm lg:text-base"
+                >
+                  How It Works
+                </button>
+                <button 
+                  onClick={() => {
+                    const element = document.getElementById('tiers');
+                    const offset = 120;
+                    const elementPosition = element.offsetTop;
+                    const offsetPosition = elementPosition - offset;
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                  }}
+                  className="text-gray-300 hover:text-orange-400 transition-colors text-sm lg:text-base"
+                >
+                  Membership
+                </button>
+                <button 
+                  onClick={() => {
+                    const element = document.getElementById('benefits');
+                    const offset = 120;
+                    const elementPosition = element.offsetTop;
+                    const offsetPosition = elementPosition - offset;
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                  }}
+                  className="text-gray-300 hover:text-orange-400 transition-colors text-sm lg:text-base"
+                >
+                  Benefits
+                </button>
+                <button 
+                  onClick={() => {
+                    const element = document.getElementById('contact-form');
+                    const offset = 120;
+                    const elementPosition = element.offsetTop;
+                    const offsetPosition = elementPosition - offset;
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
                   }}
                   className="text-gray-300 hover:text-orange-400 transition-colors text-sm lg:text-base"
                 >
