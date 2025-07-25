@@ -227,37 +227,65 @@ const Navigation = () => {
         {mobileMenuOpen && (
           <div className="md:hidden bg-black/95 backdrop-blur-md border-t border-gray-800">
             <div className="px-4 py-4 space-y-3">
-              <a 
-                href="#case-studies" 
-                className="block text-gray-300 hover:text-orange-400 transition-colors py-2 text-base"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Case Studies
-              </a>
-              <a 
-                href="#how-it-works" 
-                className="block text-gray-300 hover:text-orange-400 transition-colors py-2 text-base"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                How It Works
-              </a>
-              <a 
-                href="#tiers" 
-                className="block text-gray-300 hover:text-orange-400 transition-colors py-2 text-base"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Membership
-              </a>
-              <a 
-                href="#benefits" 
-                className="block text-gray-300 hover:text-orange-400 transition-colors py-2 text-base"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Benefits
-              </a>
               <button 
                 onClick={() => {
-                  document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' });
+                  const element = document.getElementById('case-studies');
+                  const offset = 80; // Account for fixed navigation height
+                  const elementPosition = element.offsetTop;
+                  const offsetPosition = elementPosition - offset;
+                  window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                  setMobileMenuOpen(false);
+                }}
+                className="block text-gray-300 hover:text-orange-400 transition-colors py-2 text-base w-full text-left"
+              >
+                Case Studies
+              </button>
+              <button 
+                onClick={() => {
+                  const element = document.getElementById('how-it-works');
+                  const offset = 80;
+                  const elementPosition = element.offsetTop;
+                  const offsetPosition = elementPosition - offset;
+                  window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                  setMobileMenuOpen(false);
+                }}
+                className="block text-gray-300 hover:text-orange-400 transition-colors py-2 text-base w-full text-left"
+              >
+                How It Works
+              </button>
+              <button 
+                onClick={() => {
+                  const element = document.getElementById('tiers');
+                  const offset = 80;
+                  const elementPosition = element.offsetTop;
+                  const offsetPosition = elementPosition - offset;
+                  window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                  setMobileMenuOpen(false);
+                }}
+                className="block text-gray-300 hover:text-orange-400 transition-colors py-2 text-base w-full text-left"
+              >
+                Membership
+              </button>
+              <button 
+                onClick={() => {
+                  const element = document.getElementById('benefits');
+                  const offset = 80;
+                  const elementPosition = element.offsetTop;
+                  const offsetPosition = elementPosition - offset;
+                  window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                  setMobileMenuOpen(false);
+                }}
+                className="block text-gray-300 hover:text-orange-400 transition-colors py-2 text-base w-full text-left"
+              >
+                Benefits
+              </button>
+              <button 
+                onClick={() => {
+                  const element = document.getElementById('contact-form');
+                  const offset = 80;
+                  const elementPosition = element.offsetTop;
+                  const offsetPosition = elementPosition - offset;
+                  window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
                   setMobileMenuOpen(false);
                 }}
                 className="block text-gray-300 hover:text-orange-400 transition-colors py-2 text-base w-full text-left"
