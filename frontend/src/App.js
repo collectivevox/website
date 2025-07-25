@@ -563,7 +563,7 @@ const App = () => {
               How <span className="text-orange-400">It Works</span>
             </h2>
             <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto px-2 sm:px-0">
-              Structured 90-minute workshops with AI-powered matching for maximum impact
+              Structured facilitator-led 90-minute workshops with AI-powered matching for maximum impact
             </p>
           </motion.div>
 
