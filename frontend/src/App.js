@@ -1617,10 +1617,10 @@ const App = () => {
             <div>
               <h4 className="text-white font-semibold mb-4">Connect</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-orange-400 transition-colors">LinkedIn</a></li>
-                <li><a href="#" className="hover:text-orange-400 transition-colors">X (Twitter)</a></li>
-                <li><a href="#" className="hover:text-orange-400 transition-colors">Instagram</a></li>
-                <li><a href="#" className="hover:text-orange-400 transition-colors">TikTok</a></li>
+                <li><a href="https://www.linkedin.com/in/jpw1/" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors">LinkedIn</a></li>
+                <li><a href="https://x.com/collectivevox" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors">X (Twitter)</a></li>
+                <li><a href="https://www.instagram.com/collectivevox/" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors">Instagram</a></li>
+                <li><a href="https://www.tiktok.com/@collectivevox" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors">TikTok</a></li>
               </ul>
             </div>
           </div>
