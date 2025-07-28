@@ -340,6 +340,19 @@ const Navigation = () => {
               >
                 Contact
               </button>
+              <button 
+                onClick={() => {
+                  const element = document.getElementById('faq');
+                  const offset = 80;
+                  const elementPosition = element.offsetTop;
+                  const offsetPosition = elementPosition - offset;
+                  window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                  setMobileMenuOpen(false);
+                }}
+                className="block text-orange-400 hover:text-orange-300 transition-colors py-2 text-base w-full text-left font-semibold"
+              >
+                FAQ
+              </button>
             </div>
           </div>
         )}
