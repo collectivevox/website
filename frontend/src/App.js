@@ -1369,25 +1369,6 @@ const App = () => {
               </motion.div>
             ))}
           </motion.div>
-
-          {/* FAQ CTA */}
-          <motion.div 
-            className="text-center mt-8 sm:mt-12"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <button 
-              onClick={() => {
-                document.getElementById('faq').scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="bg-orange-500 hover:bg-orange-600 px-6 sm:px-8 py-3 sm:py-4 rounded-full text-white text-sm sm:text-lg font-semibold transition-all transform hover:scale-105 shadow-lg hover:shadow-orange-500/25"
-            >
-              Want to Learn More? Check Our FAQ
-              <ArrowRight className="inline ml-2 h-4 w-4 sm:h-5 sm:w-5" />
-            </button>
-          </motion.div>
         </div>
       </section>
 
