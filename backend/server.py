@@ -116,7 +116,7 @@ async def test_email(background_tasks: BackgroundTasks):
         }
         
         # Replace with your actual Gmail address
-        recipient_email = "your-email@gmail.com"  # TODO: Update this
+        recipient_email = "collectivevox@gmail.com"
         
         background_tasks.add_task(
             send_contact_notification,
