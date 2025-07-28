@@ -132,6 +132,14 @@ const HeroCTA = () => {
       >
         Learn More
       </button>
+      <button 
+        onClick={() => {
+          document.getElementById('faq').scrollIntoView({ behavior: 'smooth' });
+        }}
+        className="border-2 border-orange-400/40 backdrop-blur-sm px-5 sm:px-8 py-2.5 sm:py-4 rounded-full text-orange-400 text-sm sm:text-lg font-semibold hover:bg-orange-400/10 transition-all w-full sm:w-auto max-w-xs sm:max-w-none"
+      >
+        FAQ
+      </button>
     </motion.div>
   );
 };
