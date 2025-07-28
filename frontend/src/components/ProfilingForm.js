@@ -82,6 +82,41 @@ const ProfilingForm = () => {
         setErrors({ submit: `Error: ${error.message}` });
       } else {
         console.log('Success! Assessment submitted:', data);
+        
+        // Send email notification
+        try {
+          const emailData = {
+            name: formData.fullName,
+            email: formData.email,
+            industry: formData.industry,
+            jobTitle: formData.jobTitle,
+            keyChallenges: `Challenge 1: ${formData.challenge1}\n\nChallenge 2: ${formData.challenge2}`,
+            primaryGoals: 'Assessment Form Submission',
+            interestedIn: 'Peer Coaching',
+            preferredTimes: 'To be discussed'
+          };
+
+          const emailResponse = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/send-form-notification`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              form_data: emailData,
+              form_type: 'assessment',
+              recipient_email: 'collectivevox@gmail.com'
+            }),
+          });
+
+          if (emailResponse.ok) {
+            console.log('Email notification sent successfully');
+          } else {
+            console.error('Failed to send email notification');
+          }
+        } catch (emailError) {
+          console.error('Email notification error:', emailError);
+        }
+        
         setIsSubmitted(true);
       }
     } catch (error) {
