@@ -197,14 +197,12 @@ async def send_form_notification(
         if request.form_type == "assessment":
             background_tasks.add_task(
                 send_assessment_notification,
-                form_data_with_timestamp,
-                request.recipient_email
+                form_data_with_timestamp
             )
         elif request.form_type == "contact":
             background_tasks.add_task(
                 send_contact_notification,
-                form_data_with_timestamp,
-                request.recipient_email
+                form_data_with_timestamp
             )
         else:
             raise HTTPException(status_code=400, detail="Invalid form type")
