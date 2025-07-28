@@ -626,7 +626,7 @@ const App = () => {
             </p>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8">
             {[
               {
                 icon: <Target className="h-5 w-5 sm:h-8 sm:w-8 text-orange-400" />,
@@ -645,6 +645,12 @@ const App = () => {
                 title: "Career Transition?",
                 description: "Chart your path forward with guidance from those who've successfully made the leap",
                 image: "https://images.unsplash.com/photo-1620809975674-10b8ff5f8e58?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwyfHx3b3JrcGxhY2UlMjBzdHJlc3N8ZW58MHx8fHwxNzUyMjQyMzg4fDA&ixlib=rb-4.1.0&q=85"
+              },
+              {
+                icon: <Zap className="h-5 w-5 sm:h-8 sm:w-8 text-orange-400" />,
+                title: "Feeling Burnt Out?",
+                description: "Rediscover your energy and passion through wellness strategies from diverse professionals",
+                image: "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHw0fHx3b3JrcGxhY2UlMjBzdHJlc3N8ZW58MHx8fHwxNzUyMjQyMzg4fDA&ixlib=rb-4.1.0&q=85"
               }
             ].map((item, index) => (
               <motion.div
