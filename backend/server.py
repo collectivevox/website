@@ -1,4 +1,4 @@
-from fastapi import FastAPI, APIRouter
+from fastapi import FastAPI, APIRouter, HTTPException, BackgroundTasks
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
@@ -6,9 +6,10 @@ import os
 import logging
 from pathlib import Path
 from pydantic import BaseModel, Field
-from typing import List
+from typing import List, Dict, Any
 import uuid
 from datetime import datetime
+from email_service import send_assessment_notification, send_contact_notification
 
 
 ROOT_DIR = Path(__file__).parent
@@ -35,6 +36,15 @@ class StatusCheck(BaseModel):
 class StatusCheckCreate(BaseModel):
     client_name: str
 
+class EmailNotificationRequest(BaseModel):
+    form_data: Dict[str, Any]
+    form_type: str  # "assessment" or "contact"
+    recipient_email: str
+
+class EmailResponse(BaseModel):
+    success: bool
+    message: str
+
 # Add your routes to the router instead of directly to app
 @api_router.get("/")
 async def root():
@@ -51,6 +61,74 @@ async def create_status_check(input: StatusCheckCreate):
 async def get_status_checks():
     status_checks = await db.status_checks.find().to_list(1000)
     return [StatusCheck(**status_check) for status_check in status_checks]
+
+@api_router.post("/send-form-notification", response_model=EmailResponse)
+async def send_form_notification(
+    request: EmailNotificationRequest, 
+    background_tasks: BackgroundTasks
+):
+    """
+    Send email notification for form submissions
+    """
+    try:
+        # Add timestamp to form data
+        form_data_with_timestamp = {
+            **request.form_data,
+            "submitted_at": datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
+        }
+        
+        # Send appropriate email based on form type
+        if request.form_type == "assessment":
+            background_tasks.add_task(
+                send_assessment_notification,
+                form_data_with_timestamp,
+                request.recipient_email
+            )
+        elif request.form_type == "contact":
+            background_tasks.add_task(
+                send_contact_notification,
+                form_data_with_timestamp,
+                request.recipient_email
+            )
+        else:
+            raise HTTPException(status_code=400, detail="Invalid form type")
+        
+        return EmailResponse(
+            success=True,
+            message=f"Email notification queued successfully for {request.form_type} form"
+        )
+        
+    except Exception as e:
+        logger.error(f"Error sending form notification: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Failed to send notification: {str(e)}")
+
+@api_router.post("/test-email")
+async def test_email(background_tasks: BackgroundTasks):
+    """
+    Test endpoint to verify email functionality
+    """
+    try:
+        test_data = {
+            "name": "Test User",
+            "email": "test@example.com",
+            "message": "This is a test message to verify email functionality.",
+            "submitted_at": datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
+        }
+        
+        # Replace with your actual Gmail address
+        recipient_email = "your-email@gmail.com"  # TODO: Update this
+        
+        background_tasks.add_task(
+            send_contact_notification,
+            test_data,
+            recipient_email
+        )
+        
+        return {"message": "Test email queued successfully"}
+        
+    except Exception as e:
+        logger.error(f"Error sending test email: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Failed to send test email: {str(e)}")
 
 # Include the router in the main app
 app.include_router(api_router)
