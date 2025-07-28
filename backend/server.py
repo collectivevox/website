@@ -234,8 +234,7 @@ async def test_email(background_tasks: BackgroundTasks):
         
         background_tasks.add_task(
             send_contact_notification,
-            test_data,
-            recipient_email
+            test_data
         )
         
         return {"message": "Test email queued successfully"}
