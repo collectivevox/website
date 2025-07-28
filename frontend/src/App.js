@@ -251,6 +251,18 @@ const Navigation = () => {
                 >
                   Contact
                 </button>
+                <button 
+                  onClick={() => {
+                    const element = document.getElementById('faq');
+                    const offset = 120;
+                    const elementPosition = element.offsetTop;
+                    const offsetPosition = elementPosition - offset;
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                  }}
+                  className="text-orange-400 hover:text-orange-300 transition-colors text-sm lg:text-base font-semibold"
+                >
+                  FAQ
+                </button>
               </div>
               
               <div className="ml-4 lg:ml-6 xl:ml-8">
