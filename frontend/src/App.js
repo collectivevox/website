@@ -202,7 +202,7 @@ const Navigation = () => {
                 <button 
                   onClick={() => {
                     const element = document.getElementById('case-studies');
-                    const offset = 120; // Larger offset for desktop nav
+                    const offset = 140; // Increased offset for desktop nav
                     const elementPosition = element.offsetTop;
                     const offsetPosition = elementPosition - offset;
                     window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
@@ -214,7 +214,7 @@ const Navigation = () => {
                 <button 
                   onClick={() => {
                     const element = document.getElementById('how-it-works');
-                    const offset = 120;
+                    const offset = 140; // Increased offset
                     const elementPosition = element.offsetTop;
                     const offsetPosition = elementPosition - offset;
                     window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
@@ -226,7 +226,7 @@ const Navigation = () => {
                 <button 
                   onClick={() => {
                     const element = document.getElementById('tiers');
-                    const offset = 120;
+                    const offset = 140; // Increased offset
                     const elementPosition = element.offsetTop;
                     const offsetPosition = elementPosition - offset;
                     window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
@@ -238,7 +238,7 @@ const Navigation = () => {
                 <button 
                   onClick={() => {
                     const element = document.getElementById('benefits');
-                    const offset = 120;
+                    const offset = 140; // Increased offset
                     const elementPosition = element.offsetTop;
                     const offsetPosition = elementPosition - offset;
                     window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
@@ -250,7 +250,7 @@ const Navigation = () => {
                 <button 
                   onClick={() => {
                     const element = document.getElementById('contact-form');
-                    const offset = 120;
+                    const offset = 140; // Increased offset
                     const elementPosition = element.offsetTop;
                     const offsetPosition = elementPosition - offset;
                     window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
@@ -262,7 +262,7 @@ const Navigation = () => {
                 <button 
                   onClick={() => {
                     const element = document.getElementById('faq');
-                    const offset = 120;
+                    const offset = 140; // Increased offset
                     const elementPosition = element.offsetTop;
                     const offsetPosition = elementPosition - offset;
                     window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
