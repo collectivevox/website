@@ -71,11 +71,40 @@ const ContactForm = () => {
       if (error) {
         // If contacts table doesn't exist, just show success anyway
         console.log('Contact form error (table may not exist):', error);
-        setIsSubmitted(true);
       } else {
         console.log('Contact form submitted successfully:', data);
-        setIsSubmitted(true);
       }
+
+      // Send email notification regardless of Supabase success
+      try {
+        const emailData = {
+          name: formData.name,
+          email: formData.email,
+          message: formData.question
+        };
+
+        const emailResponse = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/send-form-notification`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            form_data: emailData,
+            form_type: 'contact',
+            recipient_email: 'collectivevox@gmail.com'
+          }),
+        });
+
+        if (emailResponse.ok) {
+          console.log('Contact email notification sent successfully');
+        } else {
+          console.error('Failed to send contact email notification');
+        }
+      } catch (emailError) {
+        console.error('Contact email notification error:', emailError);
+      }
+
+      setIsSubmitted(true);
     } catch (error) {
       console.error('Network error:', error);
       // Still show success to user
