@@ -63,9 +63,9 @@ def send_assessment_notification(form_data: Dict[str, Any], recipient_email: str
         </html>
         """
         
-        # Send email using Resend
+        # Send email using Resend (using default domain until collectivevox.app is verified)
         params = {
-            "from": "Collective Vox <noreply@collectivevox.app>",
+            "from": "Collective Vox <onboarding@resend.dev>",
             "to": ["collectivevox@gmail.com"],
             "subject": f"🎯 New Assessment Request from {form_data.get('name', 'Unknown')} - Collective Vox",
             "html": html_content,
