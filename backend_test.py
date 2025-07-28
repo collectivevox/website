@@ -332,6 +332,23 @@ def run_backend_tests():
     # Test 3: CORS Configuration
     test_results.append(test_cors_headers(base_url))
     
+    # Test 4: Email Functionality Tests
+    print("\n" + "🔥" * 50)
+    print("📧 EMAIL NOTIFICATION SYSTEM TESTS")
+    print("🔥" * 50)
+    
+    # Test 4a: Basic Email Functionality
+    test_results.append(test_email_functionality(base_url))
+    
+    # Test 4b: Assessment Form Notification
+    test_results.append(test_assessment_form_notification(base_url))
+    
+    # Test 4c: Contact Form Notification
+    test_results.append(test_contact_form_notification(base_url))
+    
+    # Test 4d: Invalid Form Type Handling
+    test_results.append(test_invalid_form_type(base_url))
+    
     # Summary
     print("\n" + "=" * 50)
     print("📊 TEST SUMMARY")
@@ -342,11 +359,29 @@ def run_backend_tests():
     
     print(f"✅ Passed: {passed_tests}/{total_tests}")
     
+    # Detailed breakdown
+    test_names = [
+        "Health Check",
+        "Status Endpoints", 
+        "CORS Configuration",
+        "Basic Email Functionality",
+        "Assessment Form Notification",
+        "Contact Form Notification", 
+        "Invalid Form Type Handling"
+    ]
+    
+    print("\nDetailed Results:")
+    for i, (name, result) in enumerate(zip(test_names, test_results)):
+        status = "✅ PASS" if result else "❌ FAIL"
+        print(f"  {i+1}. {name}: {status}")
+    
     if passed_tests == total_tests:
-        print("🎉 All backend tests PASSED!")
+        print("\n🎉 All backend tests PASSED!")
+        print("📧 Email notification system is fully functional!")
         return True
     else:
-        print(f"❌ {total_tests - passed_tests} test(s) FAILED")
+        print(f"\n❌ {total_tests - passed_tests} test(s) FAILED")
+        print("🔧 Please check the failed tests and backend logs for details")
         return False
 
 if __name__ == "__main__":
