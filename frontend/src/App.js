@@ -1241,6 +1241,85 @@ const App = () => {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section id="faq" className="py-12 sm:py-20 bg-gradient-to-b from-black to-gray-900">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
+          <motion.div 
+            className="text-center mb-8 sm:mb-16"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-6">
+              Frequently Asked <span className="text-orange-400">Questions</span>
+            </h2>
+            <p className="text-sm sm:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto px-1 sm:px-0">
+              Everything you need to know about joining Collective Vox
+            </p>
+          </motion.div>
+
+          <motion.div 
+            className="max-w-4xl mx-auto space-y-4 sm:space-y-6"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            {[
+              {
+                question: "What type of challenges can I share?",
+                answer: "Professional challenges that are preoccupying your mind, causing you problems, stress and ones where you feel other perspectives would help. It could even be about your next career steps if you like."
+              },
+              {
+                question: "How are the workshops set up for the three participants?",
+                answer: "Once your profiling interview has been concluded, you can decide which monthly package suits you best (engaged or mentor) and subscribe. Our AI agent then gets to work matching you with another 2 complementary participants each month based on a series of pre-defined slots that you can select."
+              },
+              {
+                question: "How are the workshops facilitated to make sure all participants have equal time allocated to their challenge?",
+                answer: "Your experienced facilitator makes sure in each workshop to (1) help everyone relax and feel psychologically safe and (2) leads the conversation in a fair and balanced manner making sure to add value and guidance where needed."
+              },
+              {
+                question: "Do I have to share which company I work for?",
+                answer: "No, not at all. You share only what you're comfortable sharing with your peers and the facilitator. The AI summaries will only be sent to participants."
+              },
+              {
+                question: "How confident can I be that what we discuss in the workshops stays private between the three participants?",
+                answer: "Upon signing up, each participant is required to sign a non-disclosure agreement (NDA) which they are bound by, before participating in any workshop."
+              },
+              {
+                question: "To become an elite mentor, how many workshops will I have to attend?",
+                answer: "Based on receiving positive reviews after each workshop, ELITE MENTOR status could be achieved in 12 months."
+              },
+              {
+                question: "What are the true benefits of becoming an elite mentor?",
+                answer: "Gaining 5 stars and the ELITE MENTOR status has a series of benefits. (1) Experience and credibility from being both a peer coach and a coachee, (2) At least 16 positive peer reviews, (3) Platform and Social media promotion and (4) The option to earn a commission for each workshop facilitated based on upholding a minimum of 4 star rating."
+              },
+              {
+                question: "How long is the commitment when I subscribe?",
+                answer: "Once subscribed, you can unsubscribe when you'd like but please be mindful that any feedback points accrued will be lost so if you decide to re-subscribe again in the future, you'll have to start from zero."
+              }
+            ].map((faq, index) => (
+              <motion.div
+                key={index}
+                className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/10 hover:bg-white/10 transition-all"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-base sm:text-xl font-semibold text-orange-400 mb-2 sm:mb-3">
+                  {index + 1}. {faq.question}
+                </h3>
+                <p className="text-xs sm:text-base text-gray-300 leading-relaxed">
+                  {faq.answer}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
       {/* Social Proof Section */}
       <section className="py-20 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
