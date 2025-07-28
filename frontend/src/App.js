@@ -294,7 +294,11 @@ const Navigation = () => {
                 ) : (
                   <button 
                     onClick={() => {
-                      document.getElementById('profiling-form').scrollIntoView({ behavior: 'smooth' });
+                      const element = document.getElementById('profiling-form');
+                      const offset = 140; // Same offset as other desktop navigation buttons
+                      const elementPosition = element.offsetTop;
+                      const offsetPosition = elementPosition - offset;
+                      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
                     }}
                     className="bg-orange-500 hover:bg-orange-600 px-3 md:px-4 lg:px-6 py-1.5 md:py-2 rounded-full text-white text-xs md:text-sm lg:text-base font-semibold transition-all transform hover:scale-105"
                   >
