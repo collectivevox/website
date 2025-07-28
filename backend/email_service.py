@@ -121,8 +121,8 @@ def send_contact_notification(form_data: Dict[str, Any], recipient_email: str) -
         
         # Send email using Resend
         params = {
-            "from": "Collective Vox <onboarding@resend.dev>",
-            "to": [recipient_email],
+            "from": "Collective Vox <noreply@collectivevox.app>",
+            "to": ["collectivevox@gmail.com"],
             "subject": f"💬 New Contact from {form_data.get('name', 'Unknown')} - Collective Vox",
             "html": html_content,
         }
