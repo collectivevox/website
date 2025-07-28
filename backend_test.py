@@ -158,6 +158,155 @@ def test_cors_headers(base_url):
         print(f"⚠️  CORS test failed: {e}")
         return True  # Don't fail the test for CORS issues
 
+def test_email_functionality(base_url):
+    """Test the basic email functionality using test-email endpoint"""
+    print("\n🔍 Testing Basic Email Functionality...")
+    try:
+        response = requests.post(f"{base_url}/test-email", timeout=15)
+        
+        if response.status_code == 200:
+            data = response.json()
+            if "Test email queued successfully" in data.get("message", ""):
+                print("✅ Test email endpoint working correctly")
+                print("✅ Email queued successfully via background task")
+                return True
+            else:
+                print(f"❌ Unexpected response message: {data}")
+                return False
+        else:
+            print(f"❌ Test email failed with status {response.status_code}")
+            print(f"Response: {response.text}")
+            return False
+            
+    except requests.exceptions.RequestException as e:
+        print(f"❌ Test email request failed: {e}")
+        return False
+
+def test_assessment_form_notification(base_url):
+    """Test assessment form notification endpoint"""
+    print("\n🔍 Testing Assessment Form Notification...")
+    
+    # Sample assessment form data as specified in the request
+    assessment_data = {
+        "form_data": {
+            "name": "John Smith",
+            "email": "john.smith@techcorp.com",
+            "industry": "Technology",
+            "jobTitle": "Software Engineer",
+            "keyChallenges": "Improving team communication and project delivery efficiency"
+        },
+        "form_type": "assessment",
+        "recipient_email": "collectivevox@gmail.com"
+    }
+    
+    try:
+        response = requests.post(
+            f"{base_url}/send-form-notification",
+            json=assessment_data,
+            headers={"Content-Type": "application/json"},
+            timeout=15
+        )
+        
+        if response.status_code == 200:
+            data = response.json()
+            if data.get("success") and "assessment form" in data.get("message", ""):
+                print("✅ Assessment form notification endpoint working correctly")
+                print("✅ Email notification queued successfully")
+                print(f"✅ Response: {data.get('message')}")
+                return True
+            else:
+                print(f"❌ Unexpected response structure: {data}")
+                return False
+        else:
+            print(f"❌ Assessment form notification failed with status {response.status_code}")
+            print(f"Response: {response.text}")
+            return False
+            
+    except requests.exceptions.RequestException as e:
+        print(f"❌ Assessment form notification request failed: {e}")
+        return False
+
+def test_contact_form_notification(base_url):
+    """Test contact form notification endpoint"""
+    print("\n🔍 Testing Contact Form Notification...")
+    
+    # Sample contact form data as specified in the request
+    contact_data = {
+        "form_data": {
+            "name": "Sarah Johnson",
+            "email": "sarah.johnson@example.com",
+            "message": "I'm interested in learning more about your collective intelligence solutions for our organization. Could we schedule a consultation?"
+        },
+        "form_type": "contact",
+        "recipient_email": "collectivevox@gmail.com"
+    }
+    
+    try:
+        response = requests.post(
+            f"{base_url}/send-form-notification",
+            json=contact_data,
+            headers={"Content-Type": "application/json"},
+            timeout=15
+        )
+        
+        if response.status_code == 200:
+            data = response.json()
+            if data.get("success") and "contact form" in data.get("message", ""):
+                print("✅ Contact form notification endpoint working correctly")
+                print("✅ Email notification queued successfully")
+                print(f"✅ Response: {data.get('message')}")
+                return True
+            else:
+                print(f"❌ Unexpected response structure: {data}")
+                return False
+        else:
+            print(f"❌ Contact form notification failed with status {response.status_code}")
+            print(f"Response: {response.text}")
+            return False
+            
+    except requests.exceptions.RequestException as e:
+        print(f"❌ Contact form notification request failed: {e}")
+        return False
+
+def test_invalid_form_type(base_url):
+    """Test form notification endpoint with invalid form type"""
+    print("\n🔍 Testing Invalid Form Type Handling...")
+    
+    invalid_data = {
+        "form_data": {
+            "name": "Test User",
+            "email": "test@example.com"
+        },
+        "form_type": "invalid_type",
+        "recipient_email": "collectivevox@gmail.com"
+    }
+    
+    try:
+        response = requests.post(
+            f"{base_url}/send-form-notification",
+            json=invalid_data,
+            headers={"Content-Type": "application/json"},
+            timeout=15
+        )
+        
+        if response.status_code == 400:
+            data = response.json()
+            if "Invalid form type" in data.get("detail", ""):
+                print("✅ Invalid form type properly rejected with 400 status")
+                print("✅ Error handling working correctly")
+                return True
+            else:
+                print(f"❌ Unexpected error message: {data}")
+                return False
+        else:
+            print(f"❌ Expected 400 status for invalid form type, got {response.status_code}")
+            print(f"Response: {response.text}")
+            return False
+            
+    except requests.exceptions.RequestException as e:
+        print(f"❌ Invalid form type test request failed: {e}")
+        return False
+
 def run_backend_tests():
     """Run all backend tests"""
     print("🚀 Starting Backend API Tests")
