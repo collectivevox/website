@@ -117,7 +117,12 @@ const HeroCTA = () => {
     >
       <button 
         onClick={() => {
-          document.getElementById('profiling-form').scrollIntoView({ behavior: 'smooth' });
+          const element = document.getElementById('profiling-form');
+          const isMobile = window.innerWidth < 768;
+          const offset = isMobile ? 100 : 140;
+          const elementPosition = element.offsetTop;
+          const offsetPosition = elementPosition - offset;
+          window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
         }}
         className="bg-orange-500 hover:bg-orange-600 px-5 sm:px-8 py-2.5 sm:py-4 rounded-full text-white text-sm sm:text-lg font-semibold transition-all transform hover:scale-105 shadow-lg hover:shadow-orange-500/25 w-full sm:w-auto max-w-xs sm:max-w-none"
       >
@@ -126,7 +131,12 @@ const HeroCTA = () => {
       </button>
       <button 
         onClick={() => {
-          document.getElementById('how-it-works').scrollIntoView({ behavior: 'smooth' });
+          const element = document.getElementById('how-it-works');
+          const isMobile = window.innerWidth < 768;
+          const offset = isMobile ? 100 : 140;
+          const elementPosition = element.offsetTop;
+          const offsetPosition = elementPosition - offset;
+          window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
         }}
         className="border-2 border-white/20 backdrop-blur-sm px-5 sm:px-8 py-2.5 sm:py-4 rounded-full text-white text-sm sm:text-lg font-semibold hover:bg-white/10 transition-all w-full sm:w-auto max-w-xs sm:max-w-none"
       >
@@ -134,7 +144,12 @@ const HeroCTA = () => {
       </button>
       <button 
         onClick={() => {
-          document.getElementById('faq').scrollIntoView({ behavior: 'smooth' });
+          const element = document.getElementById('faq');
+          const isMobile = window.innerWidth < 768;
+          const offset = isMobile ? 100 : 140;
+          const elementPosition = element.offsetTop;
+          const offsetPosition = elementPosition - offset;
+          window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
         }}
         className="border-2 border-orange-400/40 backdrop-blur-sm px-5 sm:px-8 py-2.5 sm:py-4 rounded-full text-orange-400 text-sm sm:text-lg font-semibold hover:bg-orange-400/10 transition-all w-full sm:w-auto max-w-xs sm:max-w-none"
       >
