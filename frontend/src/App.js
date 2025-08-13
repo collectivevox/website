@@ -1107,7 +1107,7 @@ const App = () => {
                     key={index}
                     className={`rounded-xl p-3 sm:p-4 border transition-all hover:scale-105 ${
                       achievement.level === 5
-                        ? 'bg-gradient-to-r from-orange-500/20 to-yellow-500/20 border-orange-400/50 shadow-lg shadow-orange-500/20'
+                        ? 'bg-orange-500 border-orange-400 shadow-lg shadow-orange-500/30'
                         : 'bg-gray-800/40 border-gray-700/50 hover:bg-gray-800/60'
                     }`}
                     initial={{ opacity: 0, y: 20 }}
@@ -1124,8 +1124,8 @@ const App = () => {
                               key={starIndex}
                               className={`h-4 w-4 sm:h-5 sm:w-5 ${
                                 starIndex < achievement.level 
-                                  ? 'text-orange-400 fill-current' 
-                                  : 'text-gray-600'
+                                  ? (achievement.level === 5 ? 'text-white fill-current' : 'text-orange-400 fill-current')
+                                  : (achievement.level === 5 ? 'text-orange-200/50' : 'text-gray-600')
                               }`}
                             />
                           ))}
@@ -1133,11 +1133,13 @@ const App = () => {
                         
                         <div className="min-w-0">
                           <h4 className={`text-sm sm:text-base font-bold ${
-                            achievement.level === 5 ? 'text-orange-400' : 'text-white'
+                            achievement.level === 5 ? 'text-white' : 'text-white'
                           }`}>
                             {achievement.title}
                           </h4>
-                          <p className="text-xs sm:text-sm text-gray-400">
+                          <p className={`text-xs sm:text-sm ${
+                            achievement.level === 5 ? 'text-orange-100' : 'text-gray-400'
+                          }`}>
                             {achievement.requirement}
                           </p>
                         </div>
@@ -1145,7 +1147,7 @@ const App = () => {
                       
                       <div className="text-right min-w-0">
                         <div className={`text-xs font-semibold ${
-                          achievement.level === 5 ? 'text-orange-400' : 'text-gray-300'
+                          achievement.level === 5 ? 'text-orange-100' : 'text-gray-300'
                         }`}>
                           {achievement.members}
                         </div>
@@ -1154,11 +1156,13 @@ const App = () => {
                     
                     {/* Progress Bar */}
                     <div className="mt-2 sm:mt-3">
-                      <div className="bg-gray-700 rounded-full h-1.5 sm:h-2">
+                      <div className={`rounded-full h-1.5 sm:h-2 ${
+                        achievement.level === 5 ? 'bg-orange-300/30' : 'bg-gray-700'
+                      }`}>
                         <motion.div 
                           className={`h-full rounded-full ${
                             achievement.level === 5
-                              ? 'bg-gradient-to-r from-orange-400 to-yellow-400'
+                              ? 'bg-white'
                               : 'bg-orange-400'
                           }`}
                           initial={{ width: 0 }}
@@ -1167,8 +1171,12 @@ const App = () => {
                           viewport={{ once: true }}
                         />
                       </div>
-                      <p className="text-xs text-gray-400 mt-1">
-                        <span className="font-semibold text-orange-400">{achievement.benefit}</span>
+                      <p className={`text-xs mt-1 ${
+                        achievement.level === 5 ? 'text-orange-100' : 'text-gray-400'
+                      }`}>
+                        <span className={`font-semibold ${
+                          achievement.level === 5 ? 'text-white' : 'text-orange-400'
+                        }`}>{achievement.benefit}</span>
                       </p>
                     </div>
                   </motion.div>
