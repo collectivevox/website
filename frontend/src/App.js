@@ -1193,16 +1193,27 @@ const App = () => {
               className="space-y-4 sm:space-y-6"
             >
               {/* Elite Achievement Showcase */}
-              <div className="bg-gradient-to-br from-orange-500/10 to-yellow-500/10 rounded-2xl p-4 sm:p-6 border border-orange-400/30">
-                <div className="text-center mb-4 sm:mb-6">
-                  <div className="inline-flex items-center bg-orange-500/20 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-3 sm:mb-4">
-                    <Award className="h-4 w-4 sm:h-5 sm:w-5 text-orange-400 mr-2" />
-                    <span className="text-orange-400 font-bold text-xs sm:text-sm">ELITE STATUS</span>
+              <div className="bg-orange-500 rounded-2xl p-4 sm:p-6 border border-orange-400 shadow-lg shadow-orange-500/30">
+                <div className="flex items-center gap-4 sm:gap-6 mb-4 sm:mb-6">
+                  {/* Celebration Image */}
+                  <div className="flex-shrink-0">
+                    <img 
+                      src="https://images.unsplash.com/photo-1739298061766-e2751d92e9db?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwxfHxleGVjdXRpdmVzJTIwY2VsZWJyYXRpbmd8ZW58MHx8fHwxNzU1MTA5NTIxfDA&ixlib=rb-4.1.0&q=85" 
+                      alt="Executives celebrating achievement" 
+                      className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover border-4 border-white/20"
+                    />
                   </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-white mb-2">Unlock Elite Benefits</h3>
-                  <p className="text-sm sm:text-base text-gray-300">
-                    Join the top 5% of our community members
-                  </p>
+                  
+                  <div className="flex-1 text-center">
+                    <div className="inline-flex items-center bg-white/20 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-3 sm:mb-4">
+                      <Award className="h-4 w-4 sm:h-5 sm:w-5 text-white mr-2" />
+                      <span className="text-white font-bold text-xs sm:text-sm">ELITE STATUS</span>
+                    </div>
+                    <h3 className="text-lg sm:text-xl font-bold text-white mb-2">Unlock Elite Benefits</h3>
+                    <p className="text-sm sm:text-base text-orange-100">
+                      Join the top 5% of our community members
+                    </p>
+                  </div>
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
@@ -1213,10 +1224,10 @@ const App = () => {
                     { icon: <Zap className="h-4 w-4 sm:h-5 sm:w-5" />, title: "Exclusive Access", desc: "Elite mentor lounge & resources" }
                   ].map((benefit, index) => (
                     <div key={index} className="flex items-start space-x-2 sm:space-x-3">
-                      <div className="text-orange-400 mt-0.5">{benefit.icon}</div>
+                      <div className="text-white mt-0.5">{benefit.icon}</div>
                       <div>
                         <div className="text-white font-semibold text-xs sm:text-sm">{benefit.title}</div>
-                        <div className="text-gray-400 text-xs">{benefit.desc}</div>
+                        <div className="text-orange-100 text-xs">{benefit.desc}</div>
                       </div>
                     </div>
                   ))}
