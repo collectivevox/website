@@ -660,6 +660,39 @@ const App = () => {
         </div>
       </section>
 
+      {/* Product Hunt Badge Section */}
+      <section className="py-8 sm:py-12 bg-black">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          <motion.div 
+            className="text-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="inline-block">
+              <a 
+                href="https://www.producthunt.com/products/collective-vox?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-collective&#0045;vox" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block hover:scale-105 transition-transform duration-200"
+              >
+                <img 
+                  src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1004907&theme=dark&t=1755095509468" 
+                  alt="Collective Vox - Global peer coaching community | Product Hunt" 
+                  className="w-60 h-12 sm:w-72 sm:h-14 md:w-80 md:h-16"
+                  width="250" 
+                  height="54" 
+                />
+              </a>
+            </div>
+            <p className="text-gray-400 text-xs sm:text-sm mt-3">
+              🚀 Featured on Product Hunt
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Problem/Solution Section */}
       <section className="py-10 sm:py-16 lg:py-20 bg-gradient-to-b from-black to-gray-900">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
