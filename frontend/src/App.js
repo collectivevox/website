@@ -18,7 +18,8 @@ import {
   ChevronLeft,
   ChevronRight,
   Linkedin,
-  X
+  X,
+  Trophy
 } from "lucide-react";
 
 // Auth imports
