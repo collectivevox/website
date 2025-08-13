@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { User, Mail, MessageCircle, ArrowRight, CheckCircle, AlertCircle } from 'lucide-react';
-import { supabase } from '../supabaseClient';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -57,58 +56,24 @@ const ContactForm = () => {
     setErrors({});
     
     try {
-      // Try to insert into a contacts table (we'll create this if needed)
-      const { data, error } = await supabase
-        .from('contacts')
-        .insert({
-          name: formData.name,
-          email: formData.email,
-          question: formData.question,
-          status: 'new'
-        })
-        .select();
+      const formElement = e.target;
+      const formDataToSubmit = new FormData(formElement);
+      
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formDataToSubmit
+      });
 
-      if (error) {
-        // If contacts table doesn't exist, just show success anyway
-        console.log('Contact form error (table may not exist):', error);
+      if (response.ok) {
+        console.log('Contact form submitted successfully via Web3Forms');
+        setIsSubmitted(true);
       } else {
-        console.log('Contact form submitted successfully:', data);
+        console.error('Web3Forms submission failed');
+        setErrors({ submit: 'Failed to send message. Please try again.' });
       }
-
-      // Send email notification regardless of Supabase success
-      try {
-        const emailData = {
-          name: formData.name,
-          email: formData.email,
-          message: formData.question
-        };
-
-        const emailResponse = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/send-form-notification`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            form_data: emailData,
-            form_type: 'contact',
-            recipient_email: 'collectivevox@gmail.com'
-          }),
-        });
-
-        if (emailResponse.ok) {
-          console.log('Contact email notification sent successfully');
-        } else {
-          console.error('Failed to send contact email notification');
-        }
-      } catch (emailError) {
-        console.error('Contact email notification error:', emailError);
-      }
-
-      setIsSubmitted(true);
     } catch (error) {
-      console.error('Network error:', error);
-      // Still show success to user
-      setIsSubmitted(true);
+      console.error('Contact form submission error:', error);
+      setErrors({ submit: 'Network error. Please check your connection and try again.' });
     } finally {
       setIsSubmitting(false);
     }
@@ -137,6 +102,11 @@ const ContactForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
+      {/* Web3Forms Configuration */}
+      <input type="hidden" name="access_key" value="61745e59-975c-470d-8930-91a5d33d87a9" />
+      <input type="hidden" name="subject" value="Contact Form - Collective Vox" />
+      <input type="hidden" name="form_type" value="contact" />
+      
       {/* Submit Error */}
       {errors.submit && (
         <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-4">
@@ -162,6 +132,7 @@ const ContactForm = () => {
             errors.name ? 'border-red-500' : 'border-gray-600 focus:border-orange-500'
           }`}
           placeholder="Your full name"
+          required
         />
         {errors.name && (
           <p className="mt-2 text-red-400 text-sm flex items-center">
@@ -186,6 +157,7 @@ const ContactForm = () => {
             errors.email ? 'border-red-500' : 'border-gray-600 focus:border-orange-500'
           }`}
           placeholder="your.email@company.com"
+          required
         />
         {errors.email && (
           <p className="mt-2 text-red-400 text-sm flex items-center">
@@ -210,6 +182,7 @@ const ContactForm = () => {
             errors.question ? 'border-red-500' : 'border-gray-600 focus:border-orange-500'
           }`}
           placeholder="What would you like to know about Collective Vox? Ask us anything about membership, workshops, or peer coaching..."
+          required
         />
         {errors.question && (
           <p className="mt-2 text-red-400 text-sm flex items-center">
