@@ -1040,10 +1040,10 @@ const App = () => {
                   <p className="mb-4">Get your Collective Vox Badges by actively engaging in workshops and gaining positive peer reviews.</p>
                   <ul className="space-y-2 text-base">
                     <li>• <span className="text-orange-400 font-semibold">1 star:</span> 1+ peer review</li>
-                    <li>• <span className="text-orange-400 font-semibold">2 star:</span> 2+ peer reviews</li>
-                    <li>• <span className="text-orange-400 font-semibold">3 star:</span> 4+ peer reviews</li>
-                    <li>• <span className="text-orange-400 font-semibold">4 star:</span> 8+ peer reviews</li>
-                    <li>• <span className="text-orange-400 font-semibold">5 star:</span> 16+ peer reviews</li>
+                    <li>• <span className="text-orange-400 font-semibold">2 stars:</span> 2+ peer reviews</li>
+                    <li>• <span className="text-orange-400 font-semibold">3 stars:</span> 4+ peer reviews</li>
+                    <li>• <span className="text-orange-400 font-semibold">4 stars:</span> 8+ peer reviews</li>
+                    <li>• <span className="text-orange-400 font-semibold">5 stars:</span> 16+ peer reviews</li>
                   </ul>
                 </div>
                 
