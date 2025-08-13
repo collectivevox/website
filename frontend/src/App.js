@@ -554,8 +554,41 @@ const App = () => {
         </motion.div>
       </section>
 
+      {/* Product Hunt Badge Section */}
+      <section className="py-6 sm:py-8 bg-gradient-to-b from-black to-gray-900">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          <motion.div 
+            className="text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className="inline-block">
+              <a 
+                href="https://www.producthunt.com/products/collective-vox?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-collective&#0045;vox" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block hover:scale-105 transition-transform duration-200"
+              >
+                <img 
+                  src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1004907&theme=dark&t=1755095509468" 
+                  alt="Collective Vox - Global peer coaching community | Product Hunt" 
+                  className="w-52 h-10 sm:w-64 sm:h-12 md:w-72 md:h-14 lg:w-80 lg:h-16"
+                  width="250" 
+                  height="54" 
+                />
+              </a>
+            </div>
+            <p className="text-gray-400 text-xs sm:text-sm mt-2">
+              🚀 Featured on Product Hunt
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Founder Section */}
-      <section className="py-12 sm:py-20 bg-gradient-to-b from-black to-gray-900">
+      <section className="py-12 sm:py-20 bg-gradient-to-b from-gray-900 to-black">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
           <motion.div 
             className="text-center mb-8 sm:mb-16"
