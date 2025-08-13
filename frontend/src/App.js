@@ -1030,84 +1030,235 @@ const App = () => {
         </div>
       </section>
 
-      {/* Gamification Section */}
-      <section className="py-20 bg-black">
+      {/* Enhanced Recognition System */}
+      <section className="py-16 sm:py-20 bg-gradient-to-b from-black to-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
-            className="text-center mb-16"
+            className="text-center mb-12 sm:mb-16"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
               Earn Your <span className="text-orange-400">Recognition</span>
             </h2>
-            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
-              Build your professional credibility through our 5-star rating system and facilitate workshops once you achieve your 'ELITE MENTOR' badge.
+            <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto px-2 sm:px-0">
+              Level up through our professional achievement system. Unlock exclusive benefits and showcase your expertise.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Achievement Levels */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
+              className="space-y-4 sm:space-y-6"
             >
-              <img 
-                src="https://images.pexels.com/photos/7468245/pexels-photo-7468245.jpeg" 
-                alt="Achievement badges"
-                className="rounded-2xl shadow-2xl"
-              />
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/10">
+                <h3 className="text-lg sm:text-xl font-bold text-white mb-4 sm:mb-6">Your Path to Excellence</h3>
+                
+                {[
+                  { 
+                    level: 1, 
+                    title: "Getting Started", 
+                    requirement: "1+ peer review",
+                    benefit: "Community access",
+                    percentage: 85,
+                    members: "85% of members"
+                  },
+                  { 
+                    level: 2, 
+                    title: "Valuable Contributor", 
+                    requirement: "2+ peer reviews",
+                    benefit: "Workshop priority",
+                    percentage: 65,
+                    members: "65% of members"
+                  },
+                  { 
+                    level: 3, 
+                    title: "Peer Champion", 
+                    requirement: "4+ peer reviews",
+                    benefit: "Unlock facilitation",
+                    percentage: 35,
+                    members: "35% of members"
+                  },
+                  { 
+                    level: 4, 
+                    title: "Wisdom Provider", 
+                    requirement: "12+ peer reviews",
+                    benefit: "Priority booking",
+                    percentage: 15,
+                    members: "15% of members"
+                  },
+                  { 
+                    level: 5, 
+                    title: "ELITE MENTOR", 
+                    requirement: "16+ peer reviews",
+                    benefit: "Platform promotion & revenue share",
+                    percentage: 5,
+                    members: "Only 5% achieve this"
+                  }
+                ].map((achievement, index) => (
+                  <motion.div
+                    key={index}
+                    className={`rounded-xl p-3 sm:p-4 border transition-all hover:scale-105 ${
+                      achievement.level === 5
+                        ? 'bg-gradient-to-r from-orange-500/20 to-yellow-500/20 border-orange-400/50 shadow-lg shadow-orange-500/20'
+                        : 'bg-gray-800/40 border-gray-700/50 hover:bg-gray-800/60'
+                    }`}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-3 sm:space-x-4">
+                        {/* Star Rating Visual */}
+                        <div className="flex space-x-1">
+                          {[...Array(5)].map((_, starIndex) => (
+                            <Star 
+                              key={starIndex}
+                              className={`h-4 w-4 sm:h-5 sm:w-5 ${
+                                starIndex < achievement.level 
+                                  ? 'text-orange-400 fill-current' 
+                                  : 'text-gray-600'
+                              }`}
+                            />
+                          ))}
+                        </div>
+                        
+                        <div className="min-w-0">
+                          <h4 className={`text-sm sm:text-base font-bold ${
+                            achievement.level === 5 ? 'text-orange-400' : 'text-white'
+                          }`}>
+                            {achievement.title}
+                          </h4>
+                          <p className="text-xs sm:text-sm text-gray-400">
+                            {achievement.requirement}
+                          </p>
+                        </div>
+                      </div>
+                      
+                      <div className="text-right min-w-0">
+                        <div className={`text-xs font-semibold ${
+                          achievement.level === 5 ? 'text-orange-400' : 'text-gray-300'
+                        }`}>
+                          {achievement.members}
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Progress Bar */}
+                    <div className="mt-2 sm:mt-3">
+                      <div className="bg-gray-700 rounded-full h-1.5 sm:h-2">
+                        <motion.div 
+                          className={`h-full rounded-full ${
+                            achievement.level === 5
+                              ? 'bg-gradient-to-r from-orange-400 to-yellow-400'
+                              : 'bg-orange-400'
+                          }`}
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${achievement.percentage}%` }}
+                          transition={{ duration: 1, delay: index * 0.2 }}
+                          viewport={{ once: true }}
+                        />
+                      </div>
+                      <p className="text-xs text-gray-400 mt-1">
+                        <span className="font-semibold text-orange-400">{achievement.benefit}</span>
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
 
+            {/* Benefits & Recognition */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
+              className="space-y-4 sm:space-y-6"
             >
-              <div className="space-y-6">
-                <div className="text-gray-300 leading-relaxed text-lg mb-8">
-                  <p className="mb-4">Get your Collective Vox Badges by actively engaging in workshops and gaining positive peer reviews.</p>
-                  <ul className="space-y-2 text-base">
-                    <li>• <span className="text-orange-400 font-semibold">1 star:</span> 1+ peer review</li>
-                    <li>• <span className="text-orange-400 font-semibold">2 stars:</span> 2+ peer reviews</li>
-                    <li>• <span className="text-orange-400 font-semibold">3 stars:</span> 4+ peer reviews</li>
-                    <li>• <span className="text-orange-400 font-semibold">4 stars:</span> 8+ peer reviews</li>
-                    <li>• <span className="text-orange-400 font-semibold">5 stars:</span> 16+ peer reviews</li>
-                  </ul>
-                </div>
-                
-                {[
-                  { stars: 1, description: "Beginning your journey as a trusted peer" },
-                  { stars: 2, description: "Providing valuable insights consistently" },
-                  { stars: 3, description: "Recognized for exceptional peer support" },
-                  { stars: 4, description: "Established as a go-to wisdom provider" },
-                  { stars: 5, description: "ELITE MENTOR with platform promotion" }
-                ].map((badge, index) => (
-                  <div key={index} className={`flex items-center space-x-4 rounded-xl p-4 border ${
-                    badge.stars === 5 
-                      ? 'bg-gray-700/30 backdrop-blur-sm border-gray-500' 
-                      : 'bg-white/5 backdrop-blur-sm border-white/10'
-                  }`}>
-                    <div className="flex space-x-1">
-                      {[...Array(5)].map((_, starIndex) => (
-                        <Star 
-                          key={starIndex}
-                          className={`h-5 w-5 ${starIndex < badge.stars ? 'text-orange-400 fill-current' : 'text-gray-600'}`}
-                        />
-                      ))}
-                    </div>
-                    <div className="flex-1">
-                      <p className={`${badge.stars === 5 ? 'text-white font-bold' : 'text-gray-300'}`}>
-                        {badge.description}
-                      </p>
-                    </div>
+              {/* Elite Achievement Showcase */}
+              <div className="bg-gradient-to-br from-orange-500/10 to-yellow-500/10 rounded-2xl p-4 sm:p-6 border border-orange-400/30">
+                <div className="text-center mb-4 sm:mb-6">
+                  <div className="inline-flex items-center bg-orange-500/20 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-3 sm:mb-4">
+                    <Award className="h-4 w-4 sm:h-5 sm:w-5 text-orange-400 mr-2" />
+                    <span className="text-orange-400 font-bold text-xs sm:text-sm">ELITE STATUS</span>
                   </div>
-                ))}
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-2">Unlock Elite Benefits</h3>
+                  <p className="text-sm sm:text-base text-gray-300">
+                    Join the top 5% of our community members
+                  </p>
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
+                  {[
+                    { icon: <Globe className="h-4 w-4 sm:h-5 sm:w-5" />, title: "Workshop Facilitation", desc: "Lead sessions & earn revenue" },
+                    { icon: <Trophy className="h-4 w-4 sm:h-5 sm:w-5" />, title: "Platform Promotion", desc: "Featured profile & visibility" },
+                    { icon: <Users className="h-4 w-4 sm:h-5 sm:w-5" />, title: "Speaking Opportunities", desc: "Community events & webinars" },
+                    { icon: <Zap className="h-4 w-4 sm:h-5 sm:w-5" />, title: "Exclusive Access", desc: "Elite mentor lounge & resources" }
+                  ].map((benefit, index) => (
+                    <div key={index} className="flex items-start space-x-2 sm:space-x-3">
+                      <div className="text-orange-400 mt-0.5">{benefit.icon}</div>
+                      <div>
+                        <div className="text-white font-semibold text-xs sm:text-sm">{benefit.title}</div>
+                        <div className="text-gray-400 text-xs">{benefit.desc}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
+
+              {/* Achievement Stats */}
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/10">
+                <h3 className="text-lg sm:text-xl font-bold text-white mb-4 sm:mb-6">Recognition Features</h3>
+                
+                <div className="space-y-3 sm:space-y-4">
+                  {[
+                    { icon: <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5" />, title: "Real-time Progress", desc: "Instant notifications when you level up" },
+                    { icon: <Award className="h-4 w-4 sm:h-5 sm:w-5" />, title: "Public Badges", desc: "Showcase achievements on your profile" },
+                    { icon: <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5" />, title: "Peer Recognition", desc: "Get nominated by fellow members" },
+                    { icon: <Star className="h-4 w-4 sm:h-5 sm:w-5" />, title: "Success Stories", desc: "Featured spotlights for top performers" }
+                  ].map((feature, index) => (
+                    <div key={index} className="flex items-start space-x-3">
+                      <div className="text-orange-400 mt-0.5">{feature.icon}</div>
+                      <div>
+                        <div className="text-white font-semibold text-sm sm:text-base">{feature.title}</div>
+                        <div className="text-gray-400 text-xs sm:text-sm">{feature.desc}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Call to Action */}
+              <motion.div 
+                className="text-center bg-gray-800/40 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-gray-700/50"
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <h4 className="text-base sm:text-lg font-bold text-white mb-2">Ready to Start Your Journey?</h4>
+                <p className="text-sm text-gray-400 mb-4">Join workshops, get peer reviews, and climb the ranks</p>
+                <button 
+                  onClick={() => {
+                    const element = document.getElementById('profiling-form');
+                    const isMobile = window.innerWidth < 768;
+                    const offset = isMobile ? 100 : 140;
+                    const elementPosition = element.offsetTop;
+                    const offsetPosition = elementPosition - offset;
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                  }}
+                  className="bg-orange-500 hover:bg-orange-600 px-4 sm:px-6 py-2 sm:py-3 rounded-full text-white text-sm sm:text-base font-semibold transition-all transform hover:scale-105 shadow-lg hover:shadow-orange-500/25"
+                >
+                  Begin Your Path to Recognition
+                  <ArrowRight className="inline ml-2 h-4 w-4" />
+                </button>
+              </motion.div>
             </motion.div>
           </div>
         </div>
