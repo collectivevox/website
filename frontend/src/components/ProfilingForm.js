@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { User, Mail, Building, Briefcase, AlertCircle, ArrowRight, CheckCircle } from 'lucide-react';
-import { supabase } from '../supabaseClient';
 
 const ProfilingForm = () => {
   const [formData, setFormData] = useState({
@@ -63,65 +62,24 @@ const ProfilingForm = () => {
     setErrors({});
     
     try {
-      // Simple insert without upsert
-      const { data, error } = await supabase
-        .from('assessments')
-        .insert({
-          full_name: formData.fullName,
-          email: formData.email,
-          industry: formData.industry,
-          job_title: formData.jobTitle,
-          challenge_1: formData.challenge1,
-          challenge_2: formData.challenge2,
-          status: 'new'
-        })
-        .select();
+      const formElement = e.target;
+      const formDataToSubmit = new FormData(formElement);
+      
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formDataToSubmit
+      });
 
-      if (error) {
-        console.error('Supabase error:', error);
-        setErrors({ submit: `Error: ${error.message}` });
-      } else {
-        console.log('Success! Assessment submitted:', data);
-        
-        // Send email notification
-        try {
-          const emailData = {
-            name: formData.fullName,
-            email: formData.email,
-            industry: formData.industry,
-            jobTitle: formData.jobTitle,
-            keyChallenges: `Challenge 1: ${formData.challenge1}\n\nChallenge 2: ${formData.challenge2}`,
-            primaryGoals: 'Assessment Form Submission',
-            interestedIn: 'Peer Coaching',
-            preferredTimes: 'To be discussed'
-          };
-
-          const emailResponse = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/send-form-notification`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              form_data: emailData,
-              form_type: 'assessment',
-              recipient_email: 'collectivevox@gmail.com'
-            }),
-          });
-
-          if (emailResponse.ok) {
-            console.log('Email notification sent successfully');
-          } else {
-            console.error('Failed to send email notification');
-          }
-        } catch (emailError) {
-          console.error('Email notification error:', emailError);
-        }
-        
+      if (response.ok) {
+        console.log('Assessment form submitted successfully via Web3Forms');
         setIsSubmitted(true);
+      } else {
+        console.error('Web3Forms submission failed');
+        setErrors({ submit: 'Failed to submit assessment. Please try again.' });
       }
     } catch (error) {
-      console.error('Network error:', error);
-      setErrors({ submit: `Network error: ${error.message}` });
+      console.error('Assessment form submission error:', error);
+      setErrors({ submit: 'Network error. Please check your connection and try again.' });
     } finally {
       setIsSubmitting(false);
     }
@@ -153,6 +111,11 @@ const ProfilingForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-8">
+      {/* Web3Forms Configuration */}
+      <input type="hidden" name="access_key" value="61745e59-975c-470d-8930-91a5d33d87a9" />
+      <input type="hidden" name="subject" value="Free Assessment Request - Collective Vox" />
+      <input type="hidden" name="form_type" value="assessment" />
+      
       {/* Submit Error */}
       {errors.submit && (
         <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-4">
@@ -178,6 +141,7 @@ const ProfilingForm = () => {
             errors.fullName ? 'border-red-500' : 'border-gray-600 focus:border-orange-500'
           }`}
           placeholder="Enter your full name"
+          required
         />
         {errors.fullName && (
           <p className="mt-2 text-red-400 text-sm flex items-center">
@@ -202,6 +166,7 @@ const ProfilingForm = () => {
             errors.email ? 'border-red-500' : 'border-gray-600 focus:border-orange-500'
           }`}
           placeholder="your.email@company.com"
+          required
         />
         {errors.email && (
           <p className="mt-2 text-red-400 text-sm flex items-center">
@@ -224,6 +189,7 @@ const ProfilingForm = () => {
           className={`w-full px-4 py-4 bg-gray-700/50 border rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-orange-500/50 transition-all ${
             errors.industry ? 'border-red-500' : 'border-gray-600 focus:border-orange-500'
           }`}
+          required
         >
           <option value="">Select your industry</option>
           <option value="Technology">Technology</option>
@@ -263,6 +229,7 @@ const ProfilingForm = () => {
             errors.jobTitle ? 'border-red-500' : 'border-gray-600 focus:border-orange-500'
           }`}
           placeholder="e.g., Marketing Director, Software Engineer, Project Manager"
+          required
         />
         {errors.jobTitle && (
           <p className="mt-2 text-red-400 text-sm flex items-center">
@@ -287,6 +254,7 @@ const ProfilingForm = () => {
             errors.challenge1 ? 'border-red-500' : 'border-gray-600 focus:border-orange-500'
           }`}
           placeholder="Describe the first major challenge you typically face in your role..."
+          required
         />
         {errors.challenge1 && (
           <p className="mt-2 text-red-400 text-sm flex items-center">
@@ -311,6 +279,7 @@ const ProfilingForm = () => {
             errors.challenge2 ? 'border-red-500' : 'border-gray-600 focus:border-orange-500'
           }`}
           placeholder="Describe the second major challenge you typically face in your role..."
+          required
         />
         {errors.challenge2 && (
           <p className="mt-2 text-red-400 text-sm flex items-center">
