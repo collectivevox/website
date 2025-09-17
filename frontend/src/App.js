@@ -610,7 +610,7 @@ const App = () => {
                     <img 
                       src="https://i.imgur.com/odmMTqx.jpeg" 
                       alt="The Smart English Professional - 24 Accelerators to Executive Fluency by Jeremy Williams" 
-                      className="w-48 h-64 sm:w-56 sm:h-72 rounded-xl shadow-2xl border-2 border-orange-400/50 mx-auto md:mx-0 object-cover"
+                      className="w-48 h-auto sm:w-56 sm:h-auto max-h-72 rounded-xl shadow-2xl border-2 border-orange-400/50 mx-auto md:mx-0 object-contain"
                     />
                   </motion.div>
                   
