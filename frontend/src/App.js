@@ -608,7 +608,7 @@ const App = () => {
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     <img 
-                      src="https://i.imgur.com/YourEbookImageURL.jpg" 
+                      src="https://via.placeholder.com/224x288/f97316/ffffff?text=Smart+English+Professional+Ebook" 
                       alt="The Smart English Professional - 24 Accelerators to Executive Fluency by Jeremy Williams" 
                       className="w-48 h-64 sm:w-56 sm:h-72 rounded-xl shadow-2xl border-2 border-orange-400/50 mx-auto md:mx-0"
                     />
