@@ -608,15 +608,27 @@ const App = () => {
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     <img 
-                      src="https://via.placeholder.com/224x288/f97316/ffffff?text=Smart+English+Professional+Ebook" 
+                      src="https://via.placeholder.com/224x288/1a1a1a/f97316?text=The+Smart+English+Professional" 
                       alt="The Smart English Professional - 24 Accelerators to Executive Fluency by Jeremy Williams" 
                       className="w-48 h-64 sm:w-56 sm:h-72 rounded-xl shadow-2xl border-2 border-orange-400/50 mx-auto md:mx-0"
                     />
                   </motion.div>
+                  
+                  {/* Amazon Badge */}
                   <div className="mt-4 text-center md:text-left">
-                    <div className="inline-flex items-center bg-orange-500/20 px-3 py-1 rounded-full">
-                      <span className="text-orange-400 font-bold text-xs sm:text-sm">📚 FREE EBOOK</span>
-                    </div>
+                    <motion.a
+                      href="https://www.amazon.co.uk/dp/B0FQ644KC1"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-all transform hover:scale-105 shadow-lg"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <svg className="h-4 w-4 sm:h-5 sm:w-5 mr-2 text-orange-400" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 8.206 3.166 12.237 3.166 2.543 0 5.44-.645 8.44-1.89.156-.064.273-.052.302.035.03.09-.05.211-.233.294C17.394 21.295 14.17 22 11.14 22 6.87 22 2.96 20.644.394 18.663c-.124-.095-.4-.44-.349-.643zM23.314 15.447c-.226-.29-.648-.234-.88-.062-1.498.93-3.767 1.405-6.044 1.405-1.498 0-3.173-.4-4.688-.94-.133-.047-.225-.13-.225-.235 0-.133.116-.24.28-.24.625 0 4.414.525 6.915-.48 1.53-.615 3.19-1.415 4.22-2.445.226-.225.445-.36.445-.615 0-.445-.4-.72-.89-.48-1.526.745-3.584 1.49-5.964 1.49-2.77 0-5.803-1.04-7.777-2.745C8.25 10.125 7.97 9.78 8.195 9.42c.135-.22.405-.25.675-.06 1.17.82 3.22 1.545 5.55 1.545 2.77 0 5.336-.96 7.244-2.32.27-.195.54-.165.54.105 0 .615-.806 1.38-1.89 2.115z"/>
+                      </svg>
+                      <span className="text-xs sm:text-sm font-semibold">Available on Amazon</span>
+                    </motion.a>
                   </div>
                 </div>
 
@@ -630,7 +642,7 @@ const App = () => {
                   </p>
                   <p className="text-sm sm:text-base text-gray-300 mb-4 sm:mb-6 leading-relaxed">
                     Unlock your potential with proven strategies from international business. 
-                    <span className="text-orange-400 font-semibold"> Trusted by 2000+ professionals</span> 
+                    <span className="text-orange-400 font-semibold"> Trusted by 2000+ professionals </span> 
                     worldwide to enhance their executive communication skills.
                   </p>
                   
@@ -649,14 +661,14 @@ const App = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <span className="text-sm sm:text-base">Download Free Ebook</span>
+                    <span className="text-sm sm:text-base">Discover More</span>
                     <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
                   </motion.a>
                   
                   <div className="mt-3 sm:mt-4 flex justify-center md:justify-start">
                     <div className="flex items-center text-xs sm:text-sm text-gray-400">
                       <CheckCircle className="h-3 w-3 sm:h-4 sm:w-4 text-green-400 mr-1" />
-                      <span>Instant download • No email required</span>
+                      <span>Professional development resource</span>
                     </div>
                   </div>
                 </div>
