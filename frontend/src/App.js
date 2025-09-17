@@ -592,6 +592,21 @@ const App = () => {
       <section className="py-8 sm:py-12 bg-gray-900">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <motion.div 
+            className="text-center mb-8 sm:mb-12"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-6">
+              The Smart English Professional <span className="text-orange-400">ebook</span>
+            </h2>
+            <p className="text-sm sm:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto px-1 sm:px-0">
+              24 Accelerators to Executive Fluency
+            </p>
+          </motion.div>
+
+          <motion.div 
             className="max-w-4xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -634,12 +649,6 @@ const App = () => {
 
                 {/* Content */}
                 <div className="text-center md:text-left">
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3 sm:mb-4">
-                    The <span className="text-orange-400">Smart English Professional</span>
-                  </h3>
-                  <p className="text-base sm:text-lg font-semibold text-orange-400 mb-3 sm:mb-4">
-                    24 Accelerators to Executive Fluency
-                  </p>
                   <p className="text-sm sm:text-base text-gray-300 mb-4 sm:mb-6 leading-relaxed">
                     Unlock your potential with proven strategies from international business. 
                     <span className="text-orange-400 font-semibold"> Trusted by 2000+ professionals </span> 
