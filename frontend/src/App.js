@@ -588,6 +588,84 @@ const App = () => {
         </div>
       </section>
 
+      {/* Ebook Promotion Section */}
+      <section className="py-8 sm:py-12 bg-gray-900">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          <motion.div 
+            className="max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="bg-gradient-to-br from-orange-500/10 to-yellow-500/10 rounded-2xl p-4 sm:p-8 border border-orange-400/30 hover:border-orange-400/50 transition-all">
+              <div className="grid md:grid-cols-2 gap-6 sm:gap-8 items-center">
+                {/* Book Image */}
+                <div className="text-center md:text-left">
+                  <motion.div 
+                    className="inline-block"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <img 
+                      src="https://i.imgur.com/YourEbookImageURL.jpg" 
+                      alt="The Smart English Professional - 24 Accelerators to Executive Fluency by Jeremy Williams" 
+                      className="w-48 h-64 sm:w-56 sm:h-72 rounded-xl shadow-2xl border-2 border-orange-400/50 mx-auto md:mx-0"
+                    />
+                  </motion.div>
+                  <div className="mt-4 text-center md:text-left">
+                    <div className="inline-flex items-center bg-orange-500/20 px-3 py-1 rounded-full">
+                      <span className="text-orange-400 font-bold text-xs sm:text-sm">📚 FREE EBOOK</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="text-center md:text-left">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3 sm:mb-4">
+                    The <span className="text-orange-400">Smart English Professional</span>
+                  </h3>
+                  <p className="text-base sm:text-lg font-semibold text-orange-400 mb-3 sm:mb-4">
+                    24 Accelerators to Executive Fluency
+                  </p>
+                  <p className="text-sm sm:text-base text-gray-300 mb-4 sm:mb-6 leading-relaxed">
+                    Unlock your potential with proven strategies from international business. 
+                    <span className="text-orange-400 font-semibold"> Trusted by 2000+ professionals</span> 
+                    worldwide to enhance their executive communication skills.
+                  </p>
+                  
+                  <div className="mb-4 sm:mb-6">
+                    <p className="text-xs sm:text-sm text-gray-400 italic">
+                      "Transform your professional English with actionable strategies that deliver results"
+                    </p>
+                  </div>
+
+                  {/* Call to Action */}
+                  <motion.a
+                    href="https://smartprofessional.carrd.co/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-xl transition-all transform hover:scale-105 shadow-lg hover:shadow-orange-500/25"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <span className="text-sm sm:text-base">Download Free Ebook</span>
+                    <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+                  </motion.a>
+                  
+                  <div className="mt-3 sm:mt-4 flex justify-center md:justify-start">
+                    <div className="flex items-center text-xs sm:text-sm text-gray-400">
+                      <CheckCircle className="h-3 w-3 sm:h-4 sm:w-4 text-green-400 mr-1" />
+                      <span>Instant download • No email required</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Founder Section */}
       <section className="py-12 sm:py-20 bg-gradient-to-b from-gray-900 to-black">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
