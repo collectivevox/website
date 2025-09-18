@@ -589,7 +589,7 @@ const App = () => {
       </section>
 
       {/* Ebook Promotion Section */}
-      <section className="py-8 sm:py-12 bg-gray-900">
+      <section className="py-8 sm:py-12 bg-gradient-to-b from-gray-900 to-black">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-8 sm:mb-12"
